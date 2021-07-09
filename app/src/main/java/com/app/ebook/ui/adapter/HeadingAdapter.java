@@ -1,6 +1,7 @@
 package com.app.ebook.ui.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.app.ebook.databinding.ItemHeadingBinding;
 import com.app.ebook.models.book_chapters.Heading;
 import com.app.ebook.ui.activity.AudioListActivity;
 import com.app.ebook.ui.activity.BaseActivity;
+import com.app.ebook.ui.activity.SmartBookActivity;
 import com.app.ebook.ui.activity.VideoListActivity;
 import com.app.ebook.util.SessionManager;
 
@@ -76,6 +78,16 @@ public class HeadingAdapter extends RecyclerView.Adapter<HeadingAdapter.ViewHold
             }
         });
 
+        itemViewBinding.buttonText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(SmartBookActivity.SMART_BOOK_REQUEST_EXTRA, heading);
+                ((BaseActivity) mContext).startTargetActivity(SmartBookActivity.class, bundle);
+                ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
         itemViewBinding.buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,13 +107,6 @@ public class HeadingAdapter extends RecyclerView.Adapter<HeadingAdapter.ViewHold
                 ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-
-        /*holder.binder.buttonReadText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                context.startActivity(new Intent(context, EBookHeadingActivity.class));
-            }
-        });*/
     }
 
     @Override

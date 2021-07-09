@@ -19,5 +19,7 @@ public class Heading implements Serializable {
     public List<Audios> audios;
     @SerializedName("videos")
     public List<Videos> videos;
+    @SerializedName("smart_book_content_json")
+    public List<SmartBookContent> smartBookContents;
 
 }

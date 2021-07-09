@@ -87,7 +87,7 @@ public class ExamPrepSubjectiveActivity extends BaseActivity {
 
         // Answer
         List<Answer> answerList = subjectiveList.get(subjectivePosition).answer;
-        for (int i = 0; i < answerList.size(); i++) { // TextView
+        for (int i = 0; i < answerList.size(); i++) { // Text
             if (answerList.get(i).txt != null && !TextUtils.isEmpty(answerList.get(i).txt)) {
                 TextView textView = new TextView(this);
                 textView.setText(binding.layoutAnswer.getChildCount() == 0  ? answerList.get(i).txt :
@@ -96,7 +96,7 @@ public class ExamPrepSubjectiveActivity extends BaseActivity {
                 textView.setTextSize(14);
                 textView.setLineSpacing(getResources().getDimension(R.dimen._1sdp), 1.2f);
                 binding.layoutAnswer.addView(textView);
-            } else if (answerList.get(i).img != null && !TextUtils.isEmpty(answerList.get(i).img)) { // ImageView
+            } else if (answerList.get(i).img != null && !TextUtils.isEmpty(answerList.get(i).img)) { // Image
                 ImageView imageView = new ImageView(this);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(750, 500);
                 layoutParams.setMargins(0, 25,0, 15);

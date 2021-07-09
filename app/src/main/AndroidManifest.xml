@@ -82,6 +82,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".ui.activity.SmartBookActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.activity.AudioListActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -112,47 +117,38 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.ExamPrepQuestionActivity"
+            android:name=".ui.activity.ExamPrepQuestionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.ExamPrepSubjectiveActivity"
+            android:name=".ui.activity.ExamPrepSubjectiveActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.SubscriptionPlanActivity"
+            android:name=".ui.activity.SubscriptionPlanActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.CartActivity"
+            android:name=".ui.activity.CartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.OrderSummaryActivity"
+            android:name=".ui.activity.OrderSummaryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-        <activity android:name="com.app.ebook.ui.activity.HelpSupportActivity" />
+        <activity android:name=".ui.activity.HelpSupportActivity" />
 
 
-        <activity android:name="com.app.ebook.ui.activity.NotificationActivity" />
-
-
-        <activity
-            android:name="com.app.ebook.ui.activity.EBookHeadingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.app.ebook.ui.activity.BookDetailsActivity" />
-        </activity>
+        <activity android:name=".ui.activity.NotificationActivity" />
 
         <activity
-            android:name="com.app.ebook.ui.activity.SearchActivity"
+            android:name=".ui.activity.SearchActivity"
             android:label="Search Filter"
             android:parentActivityName="com.app.ebook.ui.activity.MainActivity"
             android:theme="@style/AppTheme.SearchActivity">
