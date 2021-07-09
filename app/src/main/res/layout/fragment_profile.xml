@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_E8F7FF"
+        android:orientation="vertical"
+        tools:context="com.app.ebook.ui.fragment.ProfileFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_125sdp"
+                android:background="@drawable/blue_bg_bottom_rounded" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewProfilePic"
+                        android:layout_width="@dimen/_75sdp"
+                        android:layout_height="@dimen/_75sdp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_profile_pic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:gravity="center|start"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/editTextName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:hint="Enter Name"
+                                android:inputType="textCapWords"
+                                android:singleLine="true"
+                                android:enabled="false"
+                                android:text="Avishek Mondal"
+                                android:textColor="@color/white"
+                                android:textCursorDrawable="@drawable/cursor_white"
+                                android:textSize="@dimen/large_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutClass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewClass"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:alpha="0.8"
+                                android:text="Class XII"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:id="@+id/imageViewDropDownClass"
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:src="@drawable/ic_action_dropdown"
+                                android:visibility="gone"
+                                app:tint="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/buttonEdit"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/rounded_corner_transparent_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_action_edit"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:text="Edit"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/micro_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/buttonSave"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/rounded_corner_white_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:text="Save"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/micro_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_action_email_with_background" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email"
+                                android:textColor="#5D5D5D"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/editTextEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@null"
+                                android:hint="Enter Email"
+                                android:enabled="false"
+                                android:inputType="textEmailAddress"
+                                android:singleLine="true"
+                                android:text="avi@yopmail.com"
+                                android:textColor="@color/black_333333"
+                                android:textSize="@dimen/small_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_action_phone_with_background" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mobile"
+                                android:textColor="#5D5D5D"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/editTextMobile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:hint="Enter Mobile Number"
+                                android:inputType="phone"
+                                android:maxLength="10"
+                                android:text="8759569353"
+                                android:textColor="@color/black_333333"
+                                android:textSize="@dimen/small_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_action_board_with_background" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Board"
+                                android:textColor="#5D5D5D"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/editTextBoard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@null"
+                                android:focusable="false"
+                                android:enabled="false"
+                                android:hint="Select Education Board"
+                                android:inputType="none"
+                                android:text="WBCHSE"
+                                android:textColor="@color/black_333333"
+                                android:textSize="@dimen/small_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_action_school_with_background" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="School"
+                                android:textColor="#5D5D5D"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/editTextSchool"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@null"
+                                android:hint="Enter School Name"
+                                android:inputType="textCapWords"
+                                android:singleLine="true"
+                                android:text="BMBHS"
+                                android:enabled="false"
+                                android:textColor="@color/black_333333"
+                                android:textSize="@dimen/small_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--<ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_15sdp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CBSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll1"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ICSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll2"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="WBBSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll3"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="WBBHSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll4"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+            </LinearLayout>
+        </ScrollView>-->
+
+    </LinearLayout>
+</layout>

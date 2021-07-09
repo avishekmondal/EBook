@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_E8F7FF"
+        android:orientation="vertical"
+        tools:context="com.app.ebook.ui.fragment.HomeFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/header"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:background="@drawable/white_bg_bottom_rounded" />
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <EditText
+                        android:id="@+id/editTextBoard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@color/blue_E8F7FF"
+                        android:drawableStart="@drawable/ic_action_search"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:focusable="false"
+                        android:hint="Select Education Board"
+                        android:inputType="none"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        app:startIconTint="@color/colorPrimary" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewClass"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <EditText
+                        android:id="@+id/editTextClass"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@color/blue_E8F7FF"
+                        android:drawableStart="@drawable/ic_action_search"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:focusable="false"
+                        android:hint="Select Class"
+                        android:inputType="none"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        app:startIconTint="@color/colorPrimary" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Special Offers"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_15sdp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lorem\nipsum dolor"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/medium_text"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:drawableEnd="@drawable/ic_action_right_arrow_navigate"
+                                android:drawablePadding="@dimen/_4sdp"
+                                android:text="Know more"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/mini_text"
+                                app:iconTint="@color/white" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_action_book"
+                            app:tint="@color/white" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_15sdp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CBSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll1"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ICSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll2"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="WBBSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll3"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="WBBHSE Books"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/buttonViewAll4"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black_333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBookList4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_minus5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_book_tile" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

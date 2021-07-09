@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_F5F5F6"
+        android:orientation="vertical"
+        tools:context="com.app.ebook.ui.activity.VideoActivity">
+
+        <hb.xvideoplayer.MxVideoPlayerWidget
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            app:showBottomProgress="false" />
+
+        <ImageView
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"
+            android:onClick="onClickBack"
+            android:padding="@dimen/_2sdp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_action_left_arrow"
+            app:tint="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChapterList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/videoView"
+            android:background="@color/grey_F5F5F6"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_chapter" />
+
+    </RelativeLayout>
+</layout>

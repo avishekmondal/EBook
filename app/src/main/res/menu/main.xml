@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_notification"
+        android:icon="@drawable/ic_action_notification_blue"
+        android:orderInCategory="1"
+        android:title="@string/title_notifications"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/ic_cart"
+        android:iconTint="@color/colorPrimary"
+        android:orderInCategory="2"
+        android:title="Cart"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_action_home"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/navigation_my_library"
+        android:icon="@drawable/ic_action_book"
+        android:title="My Library" />
+
+    <item
+        android:id="@+id/navigation_wishlist"
+        android:icon="@drawable/ic_action_shortlist"
+        android:title="WishList" />
+
+    <item
+        android:id="@+id/navigation_subscription"
+        android:icon="@drawable/ic_action_subscription"
+        android:title="Subscription" />
+
+    <item
+        android:id="@+id/navigation_authors_zone"
+        android:icon="@drawable/ic_action_author_zone"
+        android:title="Author's Zone" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_action_settings"
+        android:title="Settings" />
+
+    <item
+        android:id="@+id/navigation_help_and_support"
+        android:icon="@drawable/ic_action_information"
+        android:title="Help &amp; Support" />
+
+    <item
+        android:id="@+id/navigation_rating_and_reviews"
+        android:icon="@drawable/ic_rating"
+        android:title="Rating &amp; Reviews" />
+
+    <!--    <group-->
+    <!--        android:id="@+id/menu_top"-->
+    <!--        android:checkableBehavior="single">-->
+    <!--        <item-->
+    <!--            android:id="@+id/nav_home"-->
+    <!--            android:icon="@drawable/ic_action_home"-->
+    <!--            android:title="@string/menu_home" />-->
+    <!--        <item-->
+    <!--            android:id="@+id/nav_my_library"-->
+    <!--            android:icon="@drawable/ic_action_book"-->
+    <!--            android:title="My Library" />-->
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_shortlist"-->
+    <!--            android:icon="@drawable/ic_action_shortlist"-->
+    <!--            android:title="Shortlist" />-->
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_subscription"-->
+    <!--            android:icon="@drawable/ic_action_subscription"-->
+    <!--            android:title="Subscription" />-->
+    <!--    </group>-->
+
+    <!--    <group-->
+    <!--        android:id="@+id/menu_bottom"-->
+    <!--        android:checkableBehavior="single">-->
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_authors_zone"-->
+    <!--            android:icon="@drawable/ic_action_author_zone"-->
+    <!--            android:title="Author's Zone" />-->
+
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_settings"-->
+    <!--            android:icon="@drawable/ic_action_settings"-->
+    <!--            android:title="Settings" />-->
+
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_help_and_support"-->
+    <!--            android:icon="@drawable/ic_action_information"-->
+    <!--            android:title="Help &amp; Support" />-->
+
+    <!--        <item-->
+    <!--            android:id="@+id/navigation_rating_and_reviews"-->
+    <!--            android:icon="@drawable/ic_rating"-->
+    <!--            android:title="Rating &amp; Reviews" />-->
+    <!--    </group>-->
+</menu>

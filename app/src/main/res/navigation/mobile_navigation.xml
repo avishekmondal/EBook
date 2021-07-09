@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.app.ebook.ui.fragment.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_my_library"
+        android:name="com.app.ebook.ui.fragment.MyLibraryFragment"
+        tools:layout="@layout/fragment_my_library" />
+
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.app.ebook.ui.fragment.WishListFragment"
+        tools:layout="@layout/fragment_wishlist" />
+
+    <fragment
+        android:id="@+id/navigation_subscription"
+        android:name="com.app.ebook.ui.fragment.SubscriptionFragment"
+        tools:layout="@layout/fragment_subscription" />
+
+    <fragment
+        android:id="@+id/navigation_authors_zone"
+        android:name="com.app.ebook.ui.fragment.AuthorsZoneFragment"
+        tools:layout="@layout/fragment_authors_zone" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.app.ebook.ui.fragment.SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/navigation_help_and_support"
+        android:name="com.app.ebook.ui.fragment.HelpAndSupportFragment"
+        tools:layout="@layout/fragment_help_and_support" />
+    <fragment
+        android:id="@+id/navigation_rating_and_reviews"
+        android:name="com.app.ebook.ui.fragment.RatingAndReviewsFragment"
+        tools:layout="@layout/fragment_rating_and_reviews" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.app.ebook.ui.fragment.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

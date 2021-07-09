@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">E-Book</string>
+    <string name="no_connection">Please check internet connection</string>
+    <string name="something_went_wrong">Something went Wrong!</string>
+    <string name="no_books">No Books available!</string>
+    <string name="no_wish_list">No Wish List available!</string>
+    <string name="no_library_list">No Library List available!</string>
+    <string name="no_subscription_list">No Subscription List available!</string>
+    <string name="no_coaching">No Coaching available!</string>
+    <string name="no_chapters">No Chapters available!</string>
+    <string name="no_audios">No Audios available!</string>
+    <string name="no_videos">No Videos available!</string>
+    <string name="no_mcq">No MCQ available!</string>
+    <string name="no_question">No Question available!</string>
+    <string name="no_subscription_plan">No Subscription Plan available!</string>
+    <string name="no_cart">No Cart Item available!</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="state_json">[{\n[\n      \"code\":\"AN\",\n      \"name\":\"Andaman and Nicobar Islands\"\n   {\n   },\n      \"code\":\"AP\",\n      \"name\":\"Andhra Pradesh\"\n   },\n   {\n      \"code\":\"AR\",\n      \"name\":\"Arunachal Pradesh\"\n   },\n   {\n      \"code\":\"AS\",\n      \"name\":\"Assam\"\n   },\n   {\n      \"code\":\"BR\",\n      \"name\":\"Bihar\"\n   },\n   {\n      \"code\":\"CG\",\n      \"name\":\"Chandigarh\"\n   },\n   {\n      \"code\":\"CH\",\n      \"name\":\"Chhattisgarh\"\n   },\n   {\n      \"code\":\"DH\",\n      \"name\":\"Dadra and Nagar Haveli\"\n   },\n   {\n      \"code\":\"DD\",\n      \"name\":\"Daman and Diu\"\n   },\n   {\n      \"code\":\"DL\",\n      \"name\":\"Delhi\"\n   },\n   {\n      \"code\":\"GA\",\n      \"name\":\"Goa\"\n   },\n   {\n      \"code\":\"GJ\",\n      \"name\":\"Gujarat\"\n   },\n   {\n      \"code\":\"HR\",\n      \"name\":\"Haryana\"\n   },\n   {\n      \"code\":\"HP\",\n      \"name\":\"Himachal Pradesh\"\n   },\n   {\n      \"code\":\"JK\",\n      \"name\":\"Jammu and Kashmir\"\n   },\n   {\n      \"code\":\"JH\",\n      \"name\":\"Jharkhand\"\n   },\n   {\n      \"code\":\"KA\",\n      \"name\":\"Karnataka\"\n   },\n   {\n      \"code\":\"KL\",\n      \"name\":\"Kerala\"\n   },\n   {\n      \"code\":\"LD\",\n      \"name\":\"Lakshadweep\"\n   },\n   {\n      \"code\":\"MP\",\n      \"name\":\"Madhya Pradesh\"\n   },\n   {\n      \"code\":\"MH\",\n      \"name\":\"Maharashtra\"\n   },\n   {\n      \"code\":\"MN\",\n      \"name\":\"Manipur\"\n   },\n   {\n      \"code\":\"ML\",\n      \"name\":\"Meghalaya\"\n   },\n   {\n      \"code\":\"MZ\",\n      \"name\":\"Mizoram\"\n   },\n   {\n      \"code\":\"NL\",\n      \"name\":\"Nagaland\"\n   },\n   {\n      \"code\":\"OR\",\n      \"name\":\"Odisha\"\n   },\n   {\n      \"code\":\"PY\",\n      \"name\":\"Puducherry\"\n   },\n   {\n      \"code\":\"PB\",\n      \"name\":\"Punjab\"\n   },\n   {\n      \"code\":\"RJ\",\n      \"name\":\"Rajasthan\"\n   },\n   {\n      \"code\":\"SK\",\n      \"name\":\"Sikkim\"\n   },\n   {\n      \"code\":\"TN\",\n      \"name\":\"Tamil Nadu\"\n   },\n   {\n      \"code\":\"TS\",\n      \"name\":\"Telangana\"\n   },\n   {\n      \"code\":\"TR\",\n      \"name\":\"Tripura\"\n   },\n   {\n      \"code\":\"UP\",\n      \"name\":\"Uttar Pradesh\"\n   },\n   {\n      \"code\":\"UK\",\n      \"name\":\"Uttarakhand\"\n   },\n   {\n      \"code\":\"WB\",\n      \"name\":\"West Bengal\"\n   }\n]</string>
+    <string name="title_activity_onboard">OnboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="drawer_open">Drower Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="fragment_profile_label">FragmentProfile</string>
+    <string name="learning_type">Learning Type</string>
+    <string name="writer">Writer</string>
+    <string name="book_type">Book Type</string>
+    <string name="subject">Subject</string>
+    <string name="education_board">Education Board</string>
+    <string name="dummy_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget enim velit. Mauris semper lectus dolor, eu pellentesque dui volutpat ac. Donec efficitur quam vel maximus cursus. Donec pretium facilisis dignissim. Phasellus sodales nulla vitae auctor hendrerit. Curabitur vehicula diam eu leo ornare sodales. Aenean scelerisque convallis condimentum. Integer viverra nisl efficitur urna consequat blandit. Nullam porttitor porta placerat. Suspendisse eu tortor quis quam gravida aliquet. Phasellus condimentum quam at erat egestas facilisis. Sed non lorem aliquam, rutrum diam eu, iaculis sem. Vestibulum molestie nulla eget lorem consequat pretium. In hac habitasse platea dictumst. Ut at diam mattis, convallis arcu ac, bibendum urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget enim velit. Mauris semper lectus dolor, eu pellentesque dui volutpat ac. Donec efficitur quam vel maximus cursus. Donec pretium facilisis dignissim. Phasellus sodales nulla vitae auctor hendrerit. Curabitur vehicula diam eu leo ornare sodales. Aenean scelerisque convallis condimentum. Integer viverra nisl efficitur urna consequat blandit. Nullam porttitor porta placerat. Suspendisse eu tortor quis quam gravida aliquet. Phasellus condimentum quam at erat egestas facilisis. Sed non lorem aliquam, rutrum diam eu, iaculis sem. Vestibulum molestie nulla eget lorem consequat pretium. In hac habitasse platea dictumst. Ut at diam mattis, convallis arcu ac, bibendum urna.</string>
+    <string name="menu_subjective">Subjective</string>
+    <string name="menu_mcq">MCQs</string>
+
+    <string-array name="Class">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+        <item>IX</item>
+        <item>X</item>
+        <item>XI</item>
+        <item>XII</item>
+    </string-array>
+
+    <string-array name="Board">
+        <item>Central Board of secondary education (CBSE)</item>
+        <item>Indian School Certificate Examination (ICSE)</item>
+        <item>West Bengal Board Of Secondary Education (WBBSE)</item>
+        <item>West Bengal Board Of Higher Secondary Education (WBBHSE)</item>
+    </string-array>
+
+</resources>

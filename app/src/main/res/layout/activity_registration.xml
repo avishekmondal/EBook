@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".ui.activity.RegistrationActivity">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/colorPrimary"
+            android:translationZ="@dimen/_2sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+                    app:srcCompat="@drawable/ic_action_logo" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_37sdp"
+                    android:layout_marginBottom="@dimen/_minus20sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_44sdp">
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_53sdp"
+                            android:text="Sign up"
+                            android:textColor="#333333"
+                            android:textSize="@dimen/_30sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/textInputLayoutName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_64sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:background="@drawable/blue_border_white_bg"
+                            android:drawableLeft="@drawable/ic_action_user"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:hint="Enter Name"
+                            android:inputType="text"
+                            android:maxLength="40"
+                            android:padding="@dimen/_10sdp"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                        <EditText
+                            android:id="@+id/textInputLayoutEmail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:background="@drawable/blue_border_white_bg"
+                            android:drawableLeft="@drawable/ic_action_email"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:hint="Enter Email"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="30"
+                            android:padding="@dimen/_10sdp"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutName" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutPassword"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Password"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:endIconMode="password_toggle"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutCity"
+                            app:startIconDrawable="@drawable/ic_action_key"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editTextPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutConfirmPassword"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Confirm Password"
+                            android:visibility="gone"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:endIconMode="password_toggle"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword"
+                            app:startIconDrawable="@drawable/ic_action_key"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editTextConfirmPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutMobile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter mobile number"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail"
+                            app:startIconDrawable="@drawable/ic_action_phone"
+                            app:startIconTint="@color/black">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editTextMobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutState"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter State"
+                            android:visibility="gone"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutInstituteName"
+                            app:startIconDrawable="@drawable/ic_action_place"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutCity"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter City"
+                            android:visibility="gone"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutState"
+                            app:startIconDrawable="@drawable/ic_action_place"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownCity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutSchool"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter education board"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutClass"
+                            app:startIconDrawable="@drawable/ic_action_graduation_hat"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownSchool"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutInstituteName"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter School name"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSchool"
+                            app:startIconDrawable="@drawable/ic_action_school"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownInstituteName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutClass"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:hint="Enter Class"
+                            app:boxBackgroundColor="@color/transparent"
+                            app:errorIconTint="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutMobile"
+                            app:startIconDrawable="@drawable/ic_action_study"
+                            app:startIconTint="@color/colorPrimary">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownClass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/buttonSignUp"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:onClick="signUp"
+                            android:text="Sign UP"
+                            android:textSize="@dimen/_18sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textInputLayoutConfirmPassword" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_47sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/buttonSignUp"
+                            app:srcCompat="@drawable/ic_action_bottom_line" />
+
+                        <Button
+                            android:id="@+id/textButtonSignIn"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/_34sdp"
+                            android:onClick="openSignInActivity"
+                            android:text="Sign In"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/textView14"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Already have account?"
+                            android:textColor="#626262"
+                            android:textSize="@dimen/_16sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textButtonSignIn"
+                            app:layout_constraintEnd_toStartOf="@+id/textButtonSignIn"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textButtonSignIn" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

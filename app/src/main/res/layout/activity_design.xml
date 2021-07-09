@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_shortlist"
+                    app:tint="@color/black_333333" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wishlist"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add to list"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/micro_text" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/grey_EAEAEA"
+                android:layout_margin="@dimen/_8sdp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:textSize="@dimen/xxlarge_text"
+                    android:textStyle="bold"
+                    app:tint="@color/black_333333" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subscribe"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subscribe to the book"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/micro_text" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/grey_EAEAEA"
+                android:layout_margin="@dimen/_8sdp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_cart"
+                    app:tint="@color/black_333333" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add To Cart"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/mini_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Proceed to cart"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/micro_text" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
