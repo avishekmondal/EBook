@@ -25,9 +25,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
-
 public class EBookActivity extends BaseActivity {
 
     public static final String BOOK_DETAILS_EXTRA = "BookDetailsExtra";
@@ -59,7 +56,7 @@ public class EBookActivity extends BaseActivity {
             returnResponseBean = (BookListResponse.ReturnResponseBean) getIntent().getSerializableExtra(BOOK_DETAILS_EXTRA);
 
         binding.textViewBook.setText(returnResponseBean.bookName);
-        new PDFStream().execute(BASE_URL2 + returnResponseBean.attachmentFile);
+        new PDFStream().execute(returnResponseBean.attachmentFile);
         //new PDFStream().execute(BASE_URL2 + "/media/attachments/Science_Experiments_for_Kids__PDFDrive__49O463v.pdf");
     }
 

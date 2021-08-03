@@ -23,7 +23,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL3;
 import static com.app.ebook.network.UrlConstants.URL_AUDIO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
@@ -130,7 +129,7 @@ public class AudioListActivity extends BaseActivity implements RetrofitListener,
                 public void run() {
                     try {
                         mediaPlayer.reset();
-                        mediaPlayer.setDataSource(BASE_URL3 + audio.audioFile);
+                        mediaPlayer.setDataSource(audio.audioFile);
                         mediaPlayer.prepare();
                         mediaPlayer.start();
 

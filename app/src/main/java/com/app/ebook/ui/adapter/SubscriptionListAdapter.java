@@ -16,8 +16,6 @@ import com.app.ebook.util.AppUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
 public class SubscriptionListAdapter extends RecyclerView.Adapter<SubscriptionListAdapter.ViewHolder> {
 
     private final Context mContext;
@@ -54,7 +52,7 @@ public class SubscriptionListAdapter extends RecyclerView.Adapter<SubscriptionLi
         itemViewBinding.textViewPrice.setText(!dataBean.price.equals("0") ? "Rs. " + dataBean.price : "FREE");
         itemViewBinding.textViewPlan.setText("(" + dataBean.plan + ")");
 
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, BASE_URL2 + dataBean.coverPhoto);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
     }
 
     @Override

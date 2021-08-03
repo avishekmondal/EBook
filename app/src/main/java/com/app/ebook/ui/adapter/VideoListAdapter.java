@@ -19,7 +19,6 @@ import com.app.ebook.util.SessionManager;
 
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL3;
 import static com.app.ebook.util.Constants.MEDIA_HEADING;
 
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.ViewHolder> {
@@ -83,7 +82,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
         itemViewBinding.textViewDuration.setText(video.videoDuration);
         itemViewBinding.textViewChapter.setText(video.chapterName);
         itemViewBinding.textViewHeading.setText(video.headingName);
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewMedia, BASE_URL3 + video.videoCover);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewMedia, video.videoCover);
 
         if (position == selectedPosition) {
             itemViewBinding.layoutMedia.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryOpacity25));

@@ -17,8 +17,6 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
 public class SubjectiveQuestionAnswersAdapter extends RecyclerView.Adapter<SubjectiveQuestionAnswersAdapter.ViewHolder> {
     private final Context context;
     private ArrayList<Answer> answerList;
@@ -56,7 +54,7 @@ public class SubjectiveQuestionAnswersAdapter extends RecyclerView.Adapter<Subje
                 holder.binder.contentImage.setVisibility(View.VISIBLE);
                 Glide
                         .with(context)
-                        .load(BASE_URL2 + answerList.get(position).img)
+                        .load(answerList.get(position).img)
                         .error(R.drawable.download)
                         .into(holder.binder.contentImage);
             } catch (Exception e) {

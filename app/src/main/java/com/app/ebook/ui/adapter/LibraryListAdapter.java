@@ -17,8 +17,6 @@ import com.app.ebook.util.AppUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL3;
-
 public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.ViewHolder> {
 
     private final Context mContext;
@@ -54,7 +52,7 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
         itemViewBinding.textViewBoard.setText(dataBean.board);
         itemViewBinding.textViewValidity.setText(dataBean.daysLeft);
 
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, BASE_URL3 + dataBean.coverPhoto);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,8 +3,6 @@ package com.app.ebook.network;
 public interface UrlConstants {
 
     String BASE_URL = "http://13.235.241.44:5000/";
-    String BASE_URL2 = "http://13.235.241.44:5000";
-    String BASE_URL3 = "http://13.235.241.44:5000/media/attachments/";
 
     // Board & Class List
     String URL_BOARD_LIST = BASE_URL + "user/get_boards/";

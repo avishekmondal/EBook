@@ -28,7 +28,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
 import static com.app.ebook.network.UrlConstants.URL_BOOK_CHAPTER_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
@@ -100,7 +99,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
         else
             binding.buttonSubscribe.setText("Subscribe Now");
 
-        AppUtilities.loadImage(this, binding.imageViewBook, BASE_URL2 + returnResponseBean.coverPhoto);
+        AppUtilities.loadImage(this, binding.imageViewBook, returnResponseBean.coverPhoto);
 
         binding.stickyScrollView.setScrollViewListener(new IScrollViewListener() {
             @Override

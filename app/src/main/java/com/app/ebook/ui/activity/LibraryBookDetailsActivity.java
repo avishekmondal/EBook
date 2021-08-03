@@ -16,7 +16,6 @@ import com.app.ebook.util.AppUtilities;
 
 import retrofit2.Call;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL3;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.BOOK_NAME;
@@ -60,7 +59,7 @@ public class LibraryBookDetailsActivity extends BaseActivity {
             returnResponseBean = (BookListResponse.ReturnResponseBean) getIntent().getSerializableExtra(BOOK_DETAILS_EXTRA);
             mSessionManager.setSession(BOOK_ID, returnResponseBean.bookId);
             mSessionManager.setSession(BOOK_NAME, returnResponseBean.bookName);
-            mSessionManager.setSession(BOOK_PDF, BASE_URL3 + returnResponseBean.attachmentFile);
+            mSessionManager.setSession(BOOK_PDF, returnResponseBean.attachmentFile);
 
             binding.textViewTitle.setText(returnResponseBean.bookName);
         }

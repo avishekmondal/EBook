@@ -17,8 +17,6 @@ import com.app.ebook.util.AppUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
 public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHolder> {
 
     private final Context mContext;
@@ -54,7 +52,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         itemViewBinding.textViewBoard.setText(dataBean.board);
         //itemViewBinding.textViewPrice.setText("Rs. " + dataBean.bookPrice);
 
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, BASE_URL2 + dataBean.coverPhoto);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

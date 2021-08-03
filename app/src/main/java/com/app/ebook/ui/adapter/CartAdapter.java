@@ -18,8 +18,6 @@ import com.app.ebook.util.AppUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     private final Context mContext;
@@ -72,7 +70,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         itemViewBinding.textViewPrice.setText(!dataBean.price.equals("0") ? "Rs. " + dataBean.price : "FREE");
         itemViewBinding.checkBox.setChecked(dataBean.isChecked);
 
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, BASE_URL2 + dataBean.coverPhoto);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
 
         if (position == getItemCount() - 1) {
             itemViewBinding.viewDivider.setVisibility(View.GONE);

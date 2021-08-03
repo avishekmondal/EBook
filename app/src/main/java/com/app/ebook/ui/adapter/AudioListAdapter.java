@@ -19,7 +19,6 @@ import com.app.ebook.util.SessionManager;
 
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL3;
 import static com.app.ebook.util.Constants.MEDIA_HEADING;
 
 public class AudioListAdapter extends RecyclerView.Adapter<AudioListAdapter.ViewHolder> {
@@ -82,7 +81,7 @@ public class AudioListAdapter extends RecyclerView.Adapter<AudioListAdapter.View
         itemViewBinding.textViewDuration.setText(audio.audioDuration);
         itemViewBinding.textViewChapter.setText(audio.chapterName);
         itemViewBinding.textViewHeading.setText(audio.headingName);
-        AppUtilities.loadImage(mContext, itemViewBinding.imageViewMedia, BASE_URL3 + audio.audioCover);
+        AppUtilities.loadImage(mContext, itemViewBinding.imageViewMedia, audio.audioCover);
 
         if (position == selectedPosition) {
             itemViewBinding.layoutMedia.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryOpacity25));

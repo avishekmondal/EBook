@@ -20,8 +20,6 @@ import com.app.ebook.util.AppUtilities;
 
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
-
 public class SmartBookActivity extends AppCompatActivity {
 
     public static final String SMART_BOOK_REQUEST_EXTRA = "SmartBookRequestExtra";
@@ -81,7 +79,7 @@ public class SmartBookActivity extends AppCompatActivity {
                 layoutParams.setMargins(0, 25,0, 15);
                 layoutParams.gravity = Gravity.CENTER;
                 imageView.setLayoutParams(layoutParams);
-                AppUtilities.loadImage(this, imageView, BASE_URL2 + smartBookContentList.get(i).img);
+                AppUtilities.loadImage(this, imageView, smartBookContentList.get(i).img);
                 binding.layoutContent.addView(imageView);
             }
         }

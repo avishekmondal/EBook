@@ -19,7 +19,6 @@ import com.app.ebook.util.AppUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
 import static com.app.ebook.util.Constants.CHAPTER;
 
 public class ExamPrepSubjectiveActivity extends BaseActivity {
@@ -102,7 +101,7 @@ public class ExamPrepSubjectiveActivity extends BaseActivity {
                 layoutParams.setMargins(0, 25,0, 15);
                 layoutParams.gravity = Gravity.CENTER;
                 imageView.setLayoutParams(layoutParams);
-                AppUtilities.loadImage(this, imageView, BASE_URL2 + answerList.get(i).img);
+                AppUtilities.loadImage(this, imageView, answerList.get(i).img);
                 binding.layoutAnswer.addView(imageView);
             }
         }
@@ -110,7 +109,7 @@ public class ExamPrepSubjectiveActivity extends BaseActivity {
 
     private void loadImage(ImageView imageView, String imagePath) {
         imageView.setVisibility(View.VISIBLE);
-        AppUtilities.loadImage(this, imageView, BASE_URL2 + imagePath);
+        AppUtilities.loadImage(this, imageView, imagePath);
     }
 
 }

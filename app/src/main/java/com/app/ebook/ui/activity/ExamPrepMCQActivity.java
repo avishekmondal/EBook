@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.app.ebook.network.UrlConstants.BASE_URL2;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.CHAPTER;
@@ -135,7 +134,7 @@ public class ExamPrepMCQActivity extends BaseActivity implements RetrofitListene
 
     private void loadImage(ImageView imageView, String imagePath) {
         imageView.setVisibility(View.VISIBLE);
-        AppUtilities.loadImage(this, imageView, BASE_URL2 + imagePath);
+        AppUtilities.loadImage(this, imageView, imagePath);
     }
 
     private void enableRadioButtons() {
