@@ -13,6 +13,8 @@ public interface UrlConstants {
     String URL_REGISTRATION = BASE_URL + "user/registration/";
     String URL_LOGIN = BASE_URL + "user/login/";
     String URL_SEND_OTP = BASE_URL + "user/sendOTP/";
+    String URL_RESEND_OTP = BASE_URL + "user/resend_OTP/";
+    String URL_FORGOT_PASSWORD = BASE_URL + "user/ForgotPassword/";
     String URL_RESET_PASSWORD = BASE_URL + "user/resetPassword/";
 
     // Profile

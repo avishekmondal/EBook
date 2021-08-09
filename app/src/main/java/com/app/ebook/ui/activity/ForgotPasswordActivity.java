@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
 import com.app.ebook.databinding.ActivityForgotPasswordBinding;
-import com.app.ebook.models.SendOTPRequest;
-import com.app.ebook.models.SendOTPResponse;
+import com.app.ebook.models.ForgotPasswordRequest;
+import com.app.ebook.models.ForgotPasswordResponse;
 import com.app.ebook.models.VerifyOTPRequest;
 import com.app.ebook.network.RetroClient;
 import com.app.ebook.network.RetrofitListener;
@@ -25,7 +25,7 @@ public class ForgotPasswordActivity extends BaseActivity implements RetrofitList
     private ActivityForgotPasswordBinding binding;
     private RetroClient retroClient;
 
-    private SendOTPRequest sendOTPRequest = new SendOTPRequest();
+    private ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest();
     private VerifyOTPRequest verifyOTPRequest = new VerifyOTPRequest();
 
     @Override
@@ -55,7 +55,7 @@ public class ForgotPasswordActivity extends BaseActivity implements RetrofitList
         if (isAllFieldsValid()) {
             if (AppUtilities.getInstance(this).isOnline()) {
                 mProgressDialog.showProgressDialog();
-                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).sendOTP(sendOTPRequest), UrlConstants.URL_SEND_OTP);
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).forgotPassword(forgotPasswordRequest), UrlConstants.URL_FORGOT_PASSWORD);
             } else {
                 showSnackBar(binding.rootLayout, getString(R.string.no_connection));
             }
@@ -68,7 +68,7 @@ public class ForgotPasswordActivity extends BaseActivity implements RetrofitList
             binding.editTextEmail.setError("Please enter a valid email");
             return false;
         } else {
-            sendOTPRequest.email = AppUtilities.getText(binding.editTextEmail);
+            forgotPasswordRequest.email = AppUtilities.getText(binding.editTextEmail);
         }
         return true;
     }
@@ -85,15 +85,15 @@ public class ForgotPasswordActivity extends BaseActivity implements RetrofitList
     public void onSuccess(Call call, Response response, String method_name) {
         mProgressDialog.hideProgressDialog();
         switch (method_name) {
-            case UrlConstants.URL_SEND_OTP:
-                SendOTPResponse sendOTPResponse = (SendOTPResponse) response.body();
-                if (sendOTPResponse != null) {
-                    if (sendOTPResponse.retCode) {
-                        verifyOTPRequest.email = sendOTPRequest.email;
-                        verifyOTPRequest.otp = sendOTPResponse.returnData;
+            case UrlConstants.URL_FORGOT_PASSWORD:
+                ForgotPasswordResponse forgotPasswordResponse = (ForgotPasswordResponse) response.body();
+                if (forgotPasswordResponse != null) {
+                    if (forgotPasswordResponse.retCode) {
+                        verifyOTPRequest.email = forgotPasswordRequest.email;
+                        verifyOTPRequest.otp = forgotPasswordResponse.returnOtp;
                         openVerifyOTPActivity();
                     } else {
-                        showSnackBar(binding.rootLayout, sendOTPResponse.returnData);
+                        showSnackBar(binding.rootLayout, forgotPasswordResponse.returnData);
                     }
                 } else {
                     showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));

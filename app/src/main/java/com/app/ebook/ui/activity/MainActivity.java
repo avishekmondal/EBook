@@ -100,7 +100,7 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
                             title = "Subscription List";
                             break;
                         default:
-                            title = "E-Book";
+                            title = getString(R.string.app_name);
                             break;
                     }
                     toolbar.setTitle(title);
@@ -114,7 +114,7 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
         super.onResume();
         View headerLayout = binding.navView.getHeaderView(0);
         TextView textViewName = headerLayout.findViewById(R.id.textViewName);
-        textViewName.setText("Hi, " + mUser.fname);
+        textViewName.setText("Hi, " + mUser.name);
     }
 
     public void onClickLogout(View view) {

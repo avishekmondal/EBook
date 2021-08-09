@@ -129,7 +129,7 @@
                             android:textSize="@dimen/small_text" />
 
 
-                        <EditText
+                        <!--<EditText
                             android:id="@+id/editTextClass"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
@@ -175,7 +175,7 @@
                             android:inputType="textCapWords"
                             android:padding="@dimen/_10sdp"
                             android:singleLine="true"
-                            android:textSize="@dimen/small_text" />
+                            android:textSize="@dimen/small_text" />-->
 
                         <EditText
                             android:id="@+id/editTextPassword"
@@ -200,6 +200,7 @@
                             android:drawableStart="@drawable/ic_action_key"
                             android:drawablePadding="@dimen/_10sdp"
                             android:hint="Confirm Password"
+                            android:imeOptions="actionDone"
                             android:inputType="textPassword"
                             android:padding="@dimen/_10sdp"
                             android:singleLine="true"

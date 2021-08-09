@@ -6,20 +6,18 @@ import java.util.List;
 
 public class CheckDuplicateUserResponse {
 
-    /**
-     * ret_code : false
-     * return_otp : 6571
-     * return_data : {"email":["user with this email already exists."],"username":["user with this username already exists."],"password":["Ensure this field has at least 8 characters."],"mobile":["user with this mobile already exists."]}
-     */
-
     @SerializedName("ret_code")
     public boolean retCode;
+    @SerializedName("return_data")
+    public String returnData;
+    @SerializedName("details")
+    public DetailsBean details;
     @SerializedName("return_otp")
     public String returnOtp;
-    @SerializedName("return_data")
-    public ReturnDataBean returnData;
 
-    public static class ReturnDataBean {
+    public static class DetailsBean {
+        @SerializedName("name")
+        public List<String> name;
         @SerializedName("username")
         public List<String> username;
         @SerializedName("email")

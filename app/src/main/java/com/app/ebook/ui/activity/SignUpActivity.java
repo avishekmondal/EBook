@@ -2,26 +2,20 @@ package com.app.ebook.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ListPopupWindow;
 import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
 import com.app.ebook.databinding.ActivitySignupBinding;
-import com.app.ebook.models.BoardListResponse;
 import com.app.ebook.models.CheckDuplicateUserRequest;
 import com.app.ebook.models.CheckDuplicateUserResponse;
-import com.app.ebook.models.ClassListResponse;
 import com.app.ebook.models.RegistrationRequest;
 import com.app.ebook.models.VerifyOTPRequest;
 import com.app.ebook.network.RetroClient;
 import com.app.ebook.network.RetrofitListener;
 import com.app.ebook.network.UrlConstants;
 import com.app.ebook.util.AppUtilities;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -33,11 +27,11 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
     private ActivitySignupBinding binding;
     private RetroClient retroClient;
 
-    ArrayList<String> boardList = new ArrayList<>();
+    /*ArrayList<String> boardList = new ArrayList<>();
     ArrayList<String> classList = new ArrayList<>();
     private ListPopupWindow popupWindow = null;
 
-    private String sClass = "", sBoard = "";
+    private String sClass = "", sBoard = "";*/
 
     private final CheckDuplicateUserRequest checkDuplicateUserRequest = new CheckDuplicateUserRequest();
     private final VerifyOTPRequest verifyOTPRequest = new VerifyOTPRequest();
@@ -54,11 +48,11 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
     private void init() {
         retroClient = new RetroClient(this, this);
 
-        for (BoardListResponse boardListResponse : mBoardList)
+        /*for (BoardListResponse boardListResponse : mBoardList)
             boardList.add(boardListResponse.boardFullName + " (" + boardListResponse.boardShortName + ")");
 
         for (ClassListResponse classListResponse : mClassList)
-            classList.add(classListResponse.className);
+            classList.add(classListResponse.className);*/
     }
 
     @Override
@@ -72,7 +66,7 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
         onBackPressed();
     }
 
-    public void onClickSelectClass(View view) {
+    /*public void onClickSelectClass(View view) {
         binding.editTextClass.setError(null);
         popupWindow = AppUtilities.showAnchoredPopup(this,
                 classList, R.layout.dropdown_menu_popup_item, R.id.textView, view);
@@ -102,7 +96,7 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
             }
         });
         popupWindow.show();
-    }
+    }*/
 
     public void onClickSignUp(View view) {
         if (isAllFieldsValid()) {
@@ -116,19 +110,22 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
     }
 
     private boolean isAllFieldsValid() {
+        boolean isValid = true;
+
         if (AppUtilities.getText(binding.editTextName).isEmpty()) {
             binding.editTextName.setError("Please enter a valid name");
-            return false;
+            isValid = false;
         } else {
-            registrationRequest.fname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 0);
-            registrationRequest.lname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 1);
-            registrationRequest.username = checkDuplicateUserRequest.username = registrationRequest.fname.substring(0, 3).toLowerCase() + System.currentTimeMillis();
+            //registrationRequest.fname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 0);
+            //registrationRequest.lname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 1);
+            registrationRequest.name = checkDuplicateUserRequest.name = AppUtilities.getText(binding.editTextName);
+            registrationRequest.username = checkDuplicateUserRequest.username = registrationRequest.name.substring(0, 3).toLowerCase() + System.currentTimeMillis();
         }
 
         if (AppUtilities.getText(binding.editTextEmail).isEmpty() ||
                 !AppUtilities.isValidEmail(AppUtilities.getText(binding.editTextEmail))) {
             binding.editTextEmail.setError("Please enter a valid email");
-            return false;
+            isValid = false;
         } else {
             registrationRequest.email = checkDuplicateUserRequest.email = AppUtilities.getText(binding.editTextEmail);
         }
@@ -136,12 +133,12 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
         if (AppUtilities.getText(binding.editTextMobile).isEmpty() ||
                 !AppUtilities.isValidPhoneNo(AppUtilities.getText(binding.editTextMobile))) {
             binding.editTextMobile.setError("Please enter a valid mobile no");
-            return false;
+            isValid = false;
         } else {
             registrationRequest.mobile = checkDuplicateUserRequest.mobile = AppUtilities.getText(binding.editTextMobile);
         }
 
-        if (sClass.isEmpty()) {
+        /*if (sClass.isEmpty()) {
             binding.editTextClass.setError("Please select your class");
             return false;
         } else {
@@ -160,24 +157,23 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
             return false;
         } else {
             registrationRequest.instituteName = AppUtilities.getText(binding.editTextSchool);
-        }
+        }*/
 
         if (AppUtilities.getText(binding.editTextPassword).isEmpty()) {
             binding.editTextPassword.setError("Please enter password");
-            return false;
-        } else if (AppUtilities.getText(binding.editTextPassword).length() < 8) {
-            binding.editTextPassword.setError("Password should be at least 8 characters");
-            return false;
-        } else if (AppUtilities.getText(binding.editTextConfirmPassword).isEmpty()) {
-            binding.editTextConfirmPassword.setError("Please re-enter password");
-            return false;
+            isValid = false;
+        }
+
+        if (AppUtilities.getText(binding.editTextConfirmPassword).isEmpty()) {
+            binding.editTextConfirmPassword.setError("Please confirm password");
+            isValid = false;
         } else if (!AppUtilities.getText(binding.editTextConfirmPassword).equals(AppUtilities.getText(binding.editTextPassword))) {
-            binding.editTextConfirmPassword.setError("Password is not matching");
-            return false;
+            binding.editTextConfirmPassword.setError("Password and confirm password should be same");
+            isValid = false;
         } else {
             registrationRequest.password = checkDuplicateUserRequest.password = AppUtilities.getText(binding.editTextPassword);
         }
-        return true;
+        return isValid;
     }
 
     private void openVerifyOTPActivity() {
@@ -210,12 +206,14 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
                         verifyOTPRequest.otp = checkDuplicateUserResponse.returnOtp;
                         openVerifyOTPActivity();
                     } else {
-                        if (checkDuplicateUserResponse.returnData.email != null)
-                            binding.editTextEmail.setError(checkDuplicateUserResponse.returnData.email.get(0));
-                        if (checkDuplicateUserResponse.returnData.mobile != null)
-                            binding.editTextMobile.setError(checkDuplicateUserResponse.returnData.mobile.get(0));
-                        if (checkDuplicateUserResponse.returnData.password != null)
-                            binding.editTextPassword.setError(checkDuplicateUserResponse.returnData.password.get(0));
+                        if (checkDuplicateUserResponse.details.name != null)
+                            binding.editTextName.setError(checkDuplicateUserResponse.details.name.get(0));
+                        if (checkDuplicateUserResponse.details.email != null)
+                            binding.editTextEmail.setError(checkDuplicateUserResponse.details.email.get(0));
+                        if (checkDuplicateUserResponse.details.mobile != null)
+                            binding.editTextMobile.setError(checkDuplicateUserResponse.details.mobile.get(0));
+                        if (checkDuplicateUserResponse.details.password != null)
+                            binding.editTextPassword.setError(checkDuplicateUserResponse.details.password.get(0));
                     }
                 } else {
                     showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));

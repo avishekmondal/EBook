@@ -85,9 +85,11 @@ public class LoginActivity extends BaseActivity implements RetrofitListener {
     }
 
     private boolean isAllFieldsValid() {
+        boolean isValid = true;
+
         if (!isEmailOrPhoneNoValid()) {
             binding.editTextEmail.setError("Please enter a valid email or phone no");
-            return false;
+            isValid = false;
         } else {
             if (AppUtilities.isValidEmail(binding.editTextEmail.getText().toString())) {
                 loginRequest.email = AppUtilities.getText(binding.editTextEmail);
@@ -99,12 +101,12 @@ public class LoginActivity extends BaseActivity implements RetrofitListener {
         if (binding.editTextPassword.getText() == null ||
                 binding.editTextPassword.getText().toString().isEmpty()) {
             binding.editTextPassword.setError("Please enter your password");
-            return false;
+            isValid = false;
         } else {
             loginRequest.password = AppUtilities.getText(binding.editTextPassword);
         }
 
-        return true;
+        return isValid;
     }
 
     private void openMainActivity() {

@@ -11,11 +11,15 @@ import com.app.ebook.models.CheckDuplicateUserRequest;
 import com.app.ebook.models.CheckDuplicateUserResponse;
 import com.app.ebook.models.CityListResponse;
 import com.app.ebook.models.ClassListResponse;
+import com.app.ebook.models.ForgotPasswordRequest;
+import com.app.ebook.models.ForgotPasswordResponse;
 import com.app.ebook.models.InstituteListResponse;
 import com.app.ebook.models.LoginRequest;
 import com.app.ebook.models.LogoutResponse;
 import com.app.ebook.models.RegistrationRequest;
 import com.app.ebook.models.RegistrationResponse;
+import com.app.ebook.models.ResendOTPRequest;
+import com.app.ebook.models.ResendOTPResponse;
 import com.app.ebook.models.ResetPasswordRequest;
 import com.app.ebook.models.ResetPasswordResponse;
 import com.app.ebook.models.SendOTPRequest;
@@ -180,6 +184,12 @@ public class RetroClient {
 
         @POST(UrlConstants.URL_SEND_OTP)
         Call<SendOTPResponse> sendOTP(@Body SendOTPRequest body);
+
+        @POST(UrlConstants.URL_RESEND_OTP)
+        Call<ResendOTPResponse> resendOTP(@Body ResendOTPRequest body);
+
+        @POST(UrlConstants.URL_FORGOT_PASSWORD)
+        Call<ForgotPasswordResponse> forgotPassword(@Body ForgotPasswordRequest body);
 
         @POST(UrlConstants.URL_RESET_PASSWORD)
         Call<ResetPasswordResponse> resetPassword(@Body ResetPasswordRequest body);

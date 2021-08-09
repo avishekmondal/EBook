@@ -74,22 +74,23 @@ public class ResetPasswordActivity extends BaseActivity implements RetrofitListe
     }
 
     private boolean isAllFieldsValid() {
+        boolean isValid = true;
+
         if (AppUtilities.getText(binding.editTextPassword).isEmpty()) {
             binding.editTextPassword.setError("Please enter password");
-            return false;
-        } else if (AppUtilities.getText(binding.editTextPassword).length() < 8) {
-            binding.editTextPassword.setError("Password should be at least 8 characters");
-            return false;
-        } else if (AppUtilities.getText(binding.editTextConfirmPassword).isEmpty()) {
-            binding.editTextConfirmPassword.setError("Please re-enter password");
-            return false;
+            isValid = false;
+        }
+        if (AppUtilities.getText(binding.editTextConfirmPassword).isEmpty()) {
+            binding.editTextConfirmPassword.setError("Please Confirm password");
+            isValid = false;
         } else if (!AppUtilities.getText(binding.editTextConfirmPassword).equals(AppUtilities.getText(binding.editTextPassword))) {
-            binding.editTextConfirmPassword.setError("Password is not matching");
-            return false;
+            binding.editTextConfirmPassword.setError("Password and confirm password should be same");
+            isValid = false;
         } else {
             resetPasswordRequest.password = AppUtilities.getText(binding.editTextPassword);
         }
-        return true;
+
+        return isValid;
     }
 
     @Override

@@ -10,9 +10,9 @@ import com.app.ebook.R;
 import com.app.ebook.databinding.ActivityVerifyOTPBinding;
 import com.app.ebook.models.RegistrationRequest;
 import com.app.ebook.models.RegistrationResponse;
+import com.app.ebook.models.ResendOTPRequest;
+import com.app.ebook.models.ResendOTPResponse;
 import com.app.ebook.models.ResetPasswordRequest;
-import com.app.ebook.models.SendOTPRequest;
-import com.app.ebook.models.SendOTPResponse;
 import com.app.ebook.models.UpdateUserDetailsRequest;
 import com.app.ebook.models.UpdateUserDetailsResponse;
 import com.app.ebook.models.VerifyOTPRequest;
@@ -113,10 +113,10 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
     }
 
     public void onClickResendOTP(View view) {
-        SendOTPRequest sendOTPRequest = new SendOTPRequest();
-        sendOTPRequest.email = verifyOTPRequest.email;
-        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).sendOTP(sendOTPRequest),
-                UrlConstants.URL_SEND_OTP);
+        ResendOTPRequest resendOTPRequest = new ResendOTPRequest();
+        resendOTPRequest.email = verifyOTPRequest.email;
+        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).resendOTP(resendOTPRequest),
+                UrlConstants.URL_RESEND_OTP);
     }
 
     public void makeNetworkCall(Call call, String method) {
@@ -142,14 +142,14 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
     public void onSuccess(Call call, Response response, String method_name) {
         mProgressDialog.hideProgressDialog();
         switch (method_name) {
-            case UrlConstants.URL_SEND_OTP:
-                SendOTPResponse sendOTPResponse = (SendOTPResponse) response.body();
-                if (sendOTPResponse != null) {
-                    if (sendOTPResponse.retCode) {
-                        verifyOTPRequest.otp = sendOTPResponse.returnData;
+            case UrlConstants.URL_RESEND_OTP:
+                ResendOTPResponse resendOTPResponse = (ResendOTPResponse) response.body();
+                if (resendOTPResponse != null) {
+                    if (resendOTPResponse.retCode) {
+                        verifyOTPRequest.otp = resendOTPResponse.returnOtp;
                         showSnackBar(binding.rootLayout, "OTP Sent.");
                     } else {
-                        showSnackBar(binding.rootLayout, sendOTPResponse.returnData);
+                        showSnackBar(binding.rootLayout, resendOTPResponse.returnData);
                     }
                 } else {
                     showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));
@@ -159,8 +159,13 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
                 RegistrationResponse registrationResponse = (RegistrationResponse) response.body();
                 if (registrationResponse != null) {
                     if (registrationResponse.retCode) {
-                        showToast(this, "Verification Successful");
-                        onBackPressed();
+                        showToast(this, registrationResponse.message);
+                        mSessionManager.setSession(Constants.IS_LOGGEDIN, true);
+                        mSessionManager.setSession(Constants.CURRENT_USER, new Gson().toJson(registrationResponse.returnData, RegistrationResponse.ReturnDataBean.class));
+                        mSessionManager.setSession(Constants.USER_TOKEN, registrationResponse.returnData.token);
+                        startTargetActivity(MainActivity.class);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        finish();
                     } else {
                         showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));
                     }

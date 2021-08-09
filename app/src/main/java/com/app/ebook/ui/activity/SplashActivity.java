@@ -92,6 +92,6 @@ public class SplashActivity extends BaseActivity implements RetrofitListener {
     public void onFailure(String errorMessage) {
         showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));
     }
-
-    // https://www.getpostman.com/collections/944ccbce459794d2c802
 }
+
+/*https://www.getpostman.com/collections/944ccbce459794d2c802*/

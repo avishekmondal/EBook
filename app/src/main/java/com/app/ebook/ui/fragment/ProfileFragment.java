@@ -55,21 +55,34 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
 
         init();
         initClickListener();
-        getBoardList();
+        //getBoardList();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mUser = AppUtilities.getUser(getActivity());
+
+        binding.layoutClass.setEnabled(false);
+        binding.editTextName.setText(mUser.name);
+        binding.textViewClass.setText(sClass = mUser.sClass);
+        binding.textViewClassLevel.setVisibility(sClass.isEmpty() ? View.GONE : View.VISIBLE);
+        binding.editTextEmail.setText(mUser.email);
+        binding.editTextMobile.setText(mUser.mobile);
+        binding.editTextBoard.setText(sBoard = mUser.boardName);
+        binding.editTextSchool.setText(mUser.instituteName);
     }
 
     private void init() {
         retroClient = new RetroClient(getActivity(), this);
 
-        binding.layoutClass.setEnabled(false);
-        binding.editTextName.setText(mUser.fullName);
-        binding.textViewClass.setText("Class " + mUser.sClass);
-        binding.editTextEmail.setText(mUser.email);
-        binding.editTextMobile.setText(mUser.mobile);
-        binding.editTextBoard.setText(mUser.boardName);
-        binding.editTextSchool.setText(mUser.instituteName);
+        for (BoardListResponse boardListResponse : mBoardList)
+            boardList.add(boardListResponse.boardFullName + " (" + boardListResponse.boardShortName + ")");
+
+        for (ClassListResponse classListResponse : mClassList)
+            classList.add(classListResponse.className);
     }
 
     private void initClickListener() {
@@ -83,8 +96,8 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         popupWindow.dismiss();
-                        sClass = classList.get(position);
-                        binding.textViewClass.setText("Class " + sClass);
+                        //sClass = mClassList.get(position).classId;
+                        binding.textViewClass.setText(sClass = mClassList.get(position).className);
                     }
                 });
                 popupWindow.show();
@@ -102,8 +115,8 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         popupWindow.dismiss();
-                        sBoard = boardListResponseList.get(position).boardShortName;
-                        binding.editTextBoard.setText(sBoard);
+                        binding.editTextBoard.setText(sBoard = mBoardList.get(position).boardShortName);
+
                     }
                 });
                 popupWindow.show();
@@ -113,17 +126,7 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
         binding.buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //isEditable = true;
-                binding.buttonEdit.setVisibility(View.GONE);
-                binding.buttonSave.setVisibility(View.VISIBLE);
-
-                binding.layoutClass.setEnabled(true);
-                binding.imageViewDropDownClass.setVisibility(View.VISIBLE);
-                binding.editTextEmail.setEnabled(true);
-                binding.editTextEmail.requestFocus();
-                binding.editTextMobile.setEnabled(true);
-                binding.editTextBoard.setEnabled(true);
-                binding.editTextSchool.setEnabled(true);
+                setFieldsEditable(true);
             }
         });
 
@@ -137,6 +140,17 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
         });
     }
 
+    public void setFieldsEditable(boolean isEditable) {
+        binding.buttonEdit.setVisibility(isEditable ? View.GONE : View.VISIBLE);
+        binding.buttonSave.setVisibility(isEditable ? View.VISIBLE : View.GONE);
+        binding.textViewClassLevel.setVisibility(!isEditable && sClass.isEmpty() ? View.GONE : View.VISIBLE);
+        binding.imageViewDropDownClass.setVisibility(isEditable ? View.VISIBLE : View.GONE);
+
+        binding.layoutClass.setEnabled(isEditable ? true : false);
+        binding.editTextBoard.setEnabled(isEditable ? true : false);
+        binding.editTextSchool.setEnabled(isEditable ? true : false);
+    }
+
     public void makeNetworkCall(Call call, String method) {
         if (AppUtilities.getInstance(getActivity()).isOnline()) {
             mProgressDialog.showProgressDialog();
@@ -147,33 +161,28 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
     }
 
     private boolean isAllFieldsValid() {
-        updateUserDetailsRequest.username =  checkDuplicateProfileRequest.username = mUser.username;
+        updateUserDetailsRequest.username = checkDuplicateProfileRequest.username = mUser.username;
 
-        if (AppUtilities.getText(binding.editTextEmail).isEmpty() ||
-                !AppUtilities.isValidEmail(AppUtilities.getText(binding.editTextEmail))) {
-            binding.editTextEmail.setError("Please enter a valid email");
+        if (sClass.isEmpty()) {
+            showSnackBar(binding.rootLayout, "Please select your class");
             return false;
         } else {
-            updateUserDetailsRequest.email = checkDuplicateProfileRequest.email = AppUtilities.getText(binding.editTextEmail);
+            updateUserDetailsRequest.sClass = sClass;
         }
 
-        if (AppUtilities.getText(binding.editTextMobile).isEmpty() ||
-                !AppUtilities.isValidPhoneNo(AppUtilities.getText(binding.editTextMobile))) {
-            binding.editTextMobile.setError("Please enter a valid mobile no");
+        if (sBoard.isEmpty()) {
+            showSnackBar(binding.rootLayout, "Please select your board");
             return false;
         } else {
-            updateUserDetailsRequest.mobile = checkDuplicateProfileRequest.mobile = AppUtilities.getText(binding.editTextMobile);
+            updateUserDetailsRequest.boardName = sBoard;
         }
 
         if (AppUtilities.getText(binding.editTextSchool).isEmpty()) {
-            binding.editTextSchool.setError("Please enter your school name");
+            showSnackBar(binding.rootLayout, "Please enter your school name");
             return false;
         } else {
             updateUserDetailsRequest.instituteName = AppUtilities.getText(binding.editTextSchool);
         }
-
-        updateUserDetailsRequest.sClass = sClass;
-        updateUserDetailsRequest.boardName = sBoard;
 
         return true;
     }
@@ -184,6 +193,7 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
         bundle.putSerializable(VerifyOTPActivity.UPDATE_USER_DETAILS_REQUEST_EXTRA, updateUserDetailsRequest);
         startTargetActivity(VerifyOTPActivity.class, bundle);
         getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        setFieldsEditable(false);
     }
 
     private void getBoardList() {
@@ -197,7 +207,7 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
     @Override
     public void onSuccess(Call call, Response response, String method_name) {
         switch (method_name) {
-            case UrlConstants.URL_BOARD_LIST:
+            /*case UrlConstants.URL_BOARD_LIST:
                 boardListResponseList = (List<BoardListResponse>) response.body();
                 if (boardListResponseList.size() > 0) {
                     for (BoardListResponse boardListResponse : boardListResponseList)
@@ -212,14 +222,14 @@ public class ProfileFragment extends BaseFragment implements RetrofitListener {
                     for (ClassListResponse classListResponse : classListResponseList)
                         classList.add(classListResponse.className);
                 }
-                break;
+                break;*/
             case UrlConstants.URL_CHECK_DUPLICATE_PROFILE:
                 mProgressDialog.hideProgressDialog();
                 CheckDuplicateProfileResponse checkDuplicateProfileResponse = (CheckDuplicateProfileResponse) response.body();
                 if (checkDuplicateProfileResponse != null) {
                     if (checkDuplicateProfileResponse.retCode) {
-                        verifyOTPRequest.email = checkDuplicateProfileRequest.email;
-                        verifyOTPRequest.otp = checkDuplicateProfileResponse.returnData;
+                        verifyOTPRequest.email = mUser.email;
+                        verifyOTPRequest.otp = checkDuplicateProfileResponse.returnOtp;
                         openVerifyOTPActivity();
                     } else {
                         showSnackBar(binding.rootLayout, checkDuplicateProfileResponse.returnData);

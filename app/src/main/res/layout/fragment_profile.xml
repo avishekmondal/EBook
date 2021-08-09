@@ -60,10 +60,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
+                                android:enabled="false"
                                 android:hint="Enter Name"
                                 android:inputType="textCapWords"
                                 android:singleLine="true"
-                                android:enabled="false"
                                 android:text="Avishek Mondal"
                                 android:textColor="@color/white"
                                 android:textCursorDrawable="@drawable/cursor_white"
@@ -78,12 +78,27 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/textViewClass"
+                                android:id="@+id/textViewClassLevel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_2sdp"
                                 android:alpha="0.8"
-                                android:text="Class XII"
+                                android:text="Class"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_text"
+                                android:textStyle="normal" />
+
+                            <EditText
+                                android:id="@+id/textViewClass"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:alpha="0.8"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:focusable="false"
+                                android:text="XII"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/small_text"
                                 android:textStyle="normal" />
@@ -146,9 +161,9 @@
                                 android:layout_gravity="center"
                                 android:layout_marginStart="@dimen/_5sdp"
                                 android:text="Save"
-                                android:textStyle="bold"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/micro_text" />
+                                android:textSize="@dimen/micro_text"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -204,8 +219,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_2sdp"
                                 android:background="@null"
-                                android:hint="Enter Email"
                                 android:enabled="false"
+                                android:hint="Enter Email"
                                 android:inputType="textEmailAddress"
                                 android:singleLine="true"
                                 android:text="avi@yopmail.com"
@@ -316,8 +331,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_2sdp"
                                 android:background="@null"
-                                android:focusable="false"
                                 android:enabled="false"
+                                android:focusable="false"
                                 android:hint="Select Education Board"
                                 android:inputType="none"
                                 android:text="WBCHSE"
@@ -368,15 +383,16 @@
 
                             <EditText
                                 android:id="@+id/editTextSchool"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_2sdp"
                                 android:background="@null"
+                                android:enabled="false"
                                 android:hint="Enter School Name"
+                                android:imeOptions="actionDone"
                                 android:inputType="textCapWords"
                                 android:singleLine="true"
                                 android:text="BMBHS"
-                                android:enabled="false"
                                 android:textColor="@color/black_333333"
                                 android:textSize="@dimen/small_text" />
 
