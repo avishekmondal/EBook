@@ -12,11 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
+        android:orientation="vertical"
         tools:context="com.app.ebook.ui.activity.SignUpActivity">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:scrollbars="none">
 
             <LinearLayout
@@ -26,14 +28,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp">
+                    android:layout_height="@dimen/_135sdp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_action_logo" />
+                        app:srcCompat="@drawable/ic_logo_white" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -64,7 +66,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/_minus15sdp"
+                    android:layout_marginBottom="@dimen/_minus20sdp"
                     app:cardCornerRadius="@dimen/_20sdp">
 
                     <LinearLayout
@@ -78,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:text="Sign Up"
                             android:textColor="#333333"
                             android:textSize="@dimen/xxlarge_text"
@@ -88,7 +90,7 @@
                             android:id="@+id/editTextName"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
-                            android:layout_marginTop="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:background="@drawable/blue_border_white_bg"
                             android:drawableStart="@drawable/ic_action_user"
                             android:drawablePadding="@dimen/_10sdp"
@@ -210,59 +212,52 @@
                             android:id="@+id/buttonSignUp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_50sdp"
-                            android:layout_marginTop="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_25sdp"
                             android:onClick="onClickSignUp"
                             android:text="Sign Up"
                             android:textSize="@dimen/medium_text" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_30sdp"
-                            android:contentDescription="@null"
-                            app:srcCompat="@drawable/ic_action_bottom_line" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_20sdp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Already have an account?"
-                                android:textColor="#626262"
-                                android:textSize="@dimen/small_text" />
-
-                            <Button
-                                android:id="@+id/textButtonSignIn"
-                                style="@style/Widget.MaterialComponents.Button.TextButton"
-                                android:layout_width="@dimen/_65sdp"
-                                android:layout_height="wrap_content"
-                                android:onClick="onClickSignIn"
-                                android:text="Sign In"
-                                android:textAllCaps="false"
-                                android:textSize="@dimen/small_text"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
 
-        <!--<ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:indeterminateTint="@color/colorPrimary"
-            android:translationZ="@dimen/_2sdp"
-            android:visibility="visible" />-->
+            android:background="@color/white"
+            android:contentDescription="@null"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            app:srcCompat="@drawable/ic_action_bottom_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an account?"
+                android:textColor="#626262"
+                android:textSize="@dimen/small_text" />
+
+            <Button
+                android:id="@+id/textButtonSignIn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickSignIn"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

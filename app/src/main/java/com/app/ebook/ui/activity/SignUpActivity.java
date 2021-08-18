@@ -119,7 +119,7 @@ public class SignUpActivity extends BaseActivity implements RetrofitListener {
             //registrationRequest.fname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 0);
             //registrationRequest.lname = AppUtilities.getName(this, AppUtilities.getText(binding.editTextName), 1);
             registrationRequest.name = checkDuplicateUserRequest.name = AppUtilities.getText(binding.editTextName);
-            registrationRequest.username = checkDuplicateUserRequest.username = registrationRequest.name.substring(0, 3).toLowerCase() + System.currentTimeMillis();
+            registrationRequest.username = checkDuplicateUserRequest.username = registrationRequest.name.substring(0, 1).toLowerCase() + System.currentTimeMillis();
         }
 
         if (AppUtilities.getText(binding.editTextEmail).isEmpty() ||

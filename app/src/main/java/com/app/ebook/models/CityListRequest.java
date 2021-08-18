@@ -2,10 +2,9 @@ package com.app.ebook.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class StateListResponse {
+public class CityListRequest {
 
-    @SerializedName("state_id")
-    public String stateId;
     @SerializedName("state_name")
     public String stateName;
+
 }

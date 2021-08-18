@@ -9,6 +9,7 @@ import com.app.ebook.models.CheckDuplicateProfileRequest;
 import com.app.ebook.models.CheckDuplicateProfileResponse;
 import com.app.ebook.models.CheckDuplicateUserRequest;
 import com.app.ebook.models.CheckDuplicateUserResponse;
+import com.app.ebook.models.CityListRequest;
 import com.app.ebook.models.CityListResponse;
 import com.app.ebook.models.ClassListResponse;
 import com.app.ebook.models.ForgotPasswordRequest;
@@ -172,6 +173,12 @@ public class RetroClient {
 
         @GET(UrlConstants.URL_CLASS_LIST)
         Call<List<ClassListResponse>> getClassList();
+
+        @GET(UrlConstants.URL_STATE_LIST)
+        Call<List<StateListResponse>> getStateList();
+
+        @POST(UrlConstants.URL_CITY_LIST)
+        Call<CityListResponse> getCityList(@Body CityListRequest body);
 
         @POST(UrlConstants.URL_CHECK_DUPLICATE_USER)
         Call<CheckDuplicateUserResponse> checkDuplicateUser(@Body CheckDuplicateUserRequest body);

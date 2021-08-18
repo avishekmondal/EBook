@@ -14,4 +14,8 @@ public class UpdateUserDetailsRequest implements Serializable {
     public String boardName;
     @SerializedName("instituteName")
     public String instituteName;
+    @SerializedName("state")
+    public String state;
+    @SerializedName("city")
+    public String city;
 }

@@ -7,6 +7,8 @@ public interface UrlConstants {
     // Board & Class List
     String URL_BOARD_LIST = BASE_URL + "user/get_boards/";
     String URL_CLASS_LIST = BASE_URL + "user/get_class/";
+    String URL_STATE_LIST = BASE_URL + "user/get_states/";
+    String URL_CITY_LIST = BASE_URL + "user/get_city_by_state/";
 
     // Registration, Login, Forgot Password
     String URL_CHECK_DUPLICATE_USER = BASE_URL + "user/verify_registration/";
@@ -60,8 +62,6 @@ public interface UrlConstants {
     String URL_CHANGE_PASSWORD = BASE_URL + "changePassword";
     String URL_LOGOUT = BASE_URL + "logout";
     String URL_INSTITUTE_LIST = BASE_URL + "institute/instituteList";
-    String URL_CITY_LIST = BASE_URL + "city/cityList";
-    String URL_STATE_LIST = BASE_URL + "state/stateList";
 
 
     String URL_BOOK_GO_TO_PAGE = BASE_URL + "book/goto_page/";
