@@ -78,6 +78,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
                 android:padding="@dimen/_2sdp"
+                android:onClick="onClickCart"
                 app:srcCompat="@drawable/ic_cart"
                 app:tint="@color/white" />
 

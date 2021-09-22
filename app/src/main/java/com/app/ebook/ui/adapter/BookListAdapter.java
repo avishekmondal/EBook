@@ -50,7 +50,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         itemViewBinding.textViewSubject.setText(dataBean.subject);
         itemViewBinding.textViewClass.setText("Class " + AppUtilities.getClassName(mContext, dataBean.sclass));
         itemViewBinding.textViewBoard.setText(dataBean.board);
-        //itemViewBinding.textViewPrice.setText("Rs. " + dataBean.bookPrice);
+        itemViewBinding.textViewPrice.setText("Rs. " + dataBean.bookPrice);
 
         AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
 

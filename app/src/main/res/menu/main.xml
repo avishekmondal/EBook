@@ -12,7 +12,6 @@
     <item
         android:id="@+id/menu_cart"
         android:icon="@drawable/ic_cart"
-        android:iconTint="@color/colorPrimary"
         android:orderInCategory="2"
         android:title="Cart"
         app:showAsAction="always" />

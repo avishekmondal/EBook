@@ -141,6 +141,11 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
         }
     }
 
+    public void onClickCart(View view) {
+        startTargetActivity(CartActivity.class);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
     public void onClickSubscribe(View view) {
         if (returnResponseBean.isSubscribed)
             AppUtilities.showToast(this, "Already Subscribed");

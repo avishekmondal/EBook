@@ -43,7 +43,7 @@ public class SubscriptionPlanAdapter extends RecyclerView.Adapter<SubscriptionPl
         final SubscriptionPlanListResponse.ReturnDataBean dataBean = data.get(position);
 
         itemViewBinding.textViewPlan.setText(dataBean.plan);
-        itemViewBinding.textViewDuration.setText( " (" + dataBean.duration + " Months)");
+        itemViewBinding.textViewDuration.setText( " (" + dataBean.duration + " Days)");
         itemViewBinding.textViewPrice.setText(!dataBean.price.equals("0") ? "Rs. " + dataBean.price : "FREE");
 
         if (dataBean.productType.equalsIgnoreCase("ebook")) {

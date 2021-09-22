@@ -31,7 +31,6 @@ public class BookListResponse {
          * author_name : Test Author
          * cover_photo : /media/attachments/document-page0.pdf
          * book_price : 500
-         * content_sequence : null
          * attachment_file : /media/attachments/book_1.PDF
          * is_wishlist : false
          * is_subscribed : false
@@ -61,8 +60,6 @@ public class BookListResponse {
         public String coverPhoto;
         @SerializedName("book_price")
         public String bookPrice;
-        @SerializedName("content_sequence")
-        public String contentSequence;
         @SerializedName("attachment_file")
         public String attachmentFile;
         @SerializedName("is_wishlist")

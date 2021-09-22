@@ -55,7 +55,7 @@
                 android:onClick="onClickCart"
                 android:padding="@dimen/_2sdp"
                 app:srcCompat="@drawable/ic_cart"
-                app:tint="@color/black" />
+                app:tint="@color/colorPrimary" />
 
         </LinearLayout>
 

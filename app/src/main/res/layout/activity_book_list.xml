@@ -54,11 +54,11 @@
                 android:onClick="onClickCart"
                 android:padding="@dimen/_2sdp"
                 app:srcCompat="@drawable/ic_cart"
-                app:tint="@color/black" />
+                app:tint="@color/colorPrimary" />
 
         </LinearLayout>
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/blue_E8F7FF"
@@ -68,6 +68,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_125sdp"
                 android:background="@drawable/white_bg_bottom_rounded" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewBookList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_book" />
+
+        </RelativeLayout>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewBookList"

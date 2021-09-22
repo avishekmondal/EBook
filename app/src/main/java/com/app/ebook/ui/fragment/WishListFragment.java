@@ -26,6 +26,7 @@ import com.app.ebook.network.RetroClient;
 import com.app.ebook.network.RetrofitListener;
 import com.app.ebook.network.UrlConstants;
 import com.app.ebook.ui.activity.BookDetailsActivity;
+import com.app.ebook.ui.activity.SubscriptionPlanActivity;
 import com.app.ebook.ui.adapter.BookListAdapter;
 import com.app.ebook.util.AppUtilities;
 
@@ -110,7 +111,10 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
             @Override
             public void onClick(View view) {
                 mPopupWindow.dismiss();
-
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
+                startTargetActivity(SubscriptionPlanActivity.class, bundle);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -118,7 +122,10 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
             @Override
             public void onClick(View view) {
                 mPopupWindow.dismiss();
-
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
+                startTargetActivity(SubscriptionPlanActivity.class, bundle);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
