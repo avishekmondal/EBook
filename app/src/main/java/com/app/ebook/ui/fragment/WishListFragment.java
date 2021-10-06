@@ -30,6 +30,7 @@ import com.app.ebook.ui.activity.LibraryBookDetailsActivity;
 import com.app.ebook.ui.activity.SubscriptionPlanActivity;
 import com.app.ebook.ui.adapter.BookListAdapter;
 import com.app.ebook.util.AppUtilities;
+import com.app.ebook.util.Constants;
 
 import java.util.ArrayList;
 
@@ -72,10 +73,12 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
     @Override
     public void onBookListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
         if (!returnResponseBean.isSubscribed) {
+            mSessionManager.setSession(Constants.IS_SUBSCRIBED, false);
             Intent intent = new Intent(getActivity(), BookDetailsActivity.class);
             intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startActivityForResult(intent, 1);
         } else {
+            mSessionManager.setSession(Constants.IS_SUBSCRIBED, true);
             Bundle bundle = new Bundle();
             bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startTargetActivity(LibraryBookDetailsActivity.class, bundle);

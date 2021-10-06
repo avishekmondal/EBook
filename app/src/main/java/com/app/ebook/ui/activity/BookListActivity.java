@@ -25,6 +25,7 @@ import com.app.ebook.network.RetrofitListener;
 import com.app.ebook.network.UrlConstants;
 import com.app.ebook.ui.adapter.BookListAdapter;
 import com.app.ebook.util.AppUtilities;
+import com.app.ebook.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -91,10 +92,12 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
     @Override
     public void onBookListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
         if (!returnResponseBean.isSubscribed) {
+            mSessionManager.setSession(Constants.IS_SUBSCRIBED, false);
             Intent intent = new Intent(this, BookDetailsActivity.class);
             intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startActivityForResult(intent, 1);
         } else {
+            mSessionManager.setSession(Constants.IS_SUBSCRIBED, true);
             Bundle bundle = new Bundle();
             bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startTargetActivity(LibraryBookDetailsActivity.class, bundle);

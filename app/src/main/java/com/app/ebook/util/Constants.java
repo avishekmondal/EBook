@@ -5,6 +5,7 @@ public interface Constants {
     String BOARD_LIST = "board_list";
     String CLASS_LIST = "class_list";
     String IS_LOGGEDIN = "is_logged_in";
+    String IS_SUBSCRIBED = "is_subscribed";
     String CURRENT_USER = "current_user";
     String USER_TOKEN = "access_token";
     String BOOK_ID = "book_id";
