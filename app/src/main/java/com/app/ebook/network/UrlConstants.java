@@ -26,18 +26,29 @@ public interface UrlConstants {
     // Book List & Details
     String URL_BOOK_LIST = BASE_URL + "book/getallbooks/";
     String URL_BOOK_CONTENT = BASE_URL + "book/get_bookcontent/";
-    String URL_BOOK_CHAPTER_LIST = BASE_URL + "book/get_chapters_by_books/";
+
     String URL_BOOK_AUDIO_LIST = BASE_URL + "book/get_all_audio_by_book/";
     String URL_BOOK_VIDEO_LIST = BASE_URL + "book/get_all_videos_by_book/";
 
+    // Preview Details
+    String URL_PREVIEW_BOOK_CHAPTER_LIST = BASE_URL + "book/preview_get_chapters_by_books/";
+    String URL_PREVIEW_AUDIO_LIST = BASE_URL + "book/preview_get_all_audios/";
+    String URL_PREVIEW_VIDEO_LIST = BASE_URL + "book/preview_get_all_videos/";
+
+    String URL_PREVIEW_MCQ_CHAPTER_LIST = BASE_URL + "book/preview_get_mcqchapterlist_by_book/";
+    String URL_PREVIEW_MCQ_LIST = BASE_URL + "book/preview_get_mqcquestions_by_chapter/";
+
+    String URL_PREVIEW_SUBJECTIVE_CHAPTER_LIST = BASE_URL + "book/preview_get_chapterlist_by_book_desc/";
+    String URL_PREVIEW_SUBJECTIVE_LIST = BASE_URL + "book/preview_get_desc_quest_by_chapter/";
+
+    // Library Details
+    String URL_BOOK_CHAPTER_LIST = BASE_URL + "book/get_chapters_by_books/";
     String URL_AUDIO_LIST = BASE_URL + "book/get_all_audios/";
     String URL_VIDEO_LIST = BASE_URL + "book/get_all_videos/";
 
-    // MCQ
     String URL_MCQ_CHAPTER_LIST = BASE_URL + "book/get_mcqchapterlist_by_book/";
     String URL_MCQ_LIST = BASE_URL + "book/get_mqcquestions_by_chapter/";
 
-    // Subjective
     String URL_SUBJECTIVE_CHAPTER_LIST = BASE_URL + "book/get_chapterlist_by_book_desc/";
     String URL_SUBJECTIVE_LIST = BASE_URL + "book/get_desc_quest_by_chapter/";
 
@@ -62,11 +73,5 @@ public interface UrlConstants {
     String URL_CHANGE_PASSWORD = BASE_URL + "changePassword";
     String URL_LOGOUT = BASE_URL + "logout";
     String URL_INSTITUTE_LIST = BASE_URL + "institute/instituteList";
-
-
-    String URL_BOOK_GO_TO_PAGE = BASE_URL + "book/goto_page/";
-
-
-
 
 }
