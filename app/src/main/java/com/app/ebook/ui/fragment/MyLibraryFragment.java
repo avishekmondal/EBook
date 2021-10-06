@@ -117,9 +117,7 @@ public class MyLibraryFragment extends BaseFragment implements RetrofitListener,
     }
 
     private void getLibraryList() {
-        BookListRequest bookListRequest = new BookListRequest();
-        bookListRequest.userId = mUser.username;
-        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getLibraryList(bookListRequest),
+        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getLibraryList(),
                 UrlConstants.URL_LIBRARY_LIST);
     }
 

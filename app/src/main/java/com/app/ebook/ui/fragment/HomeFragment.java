@@ -54,7 +54,6 @@ public class HomeFragment extends BaseFragment implements RetrofitListener {
 
     private void init() {
         retroClient = new RetroClient(getActivity(), this);
-        bookListRequest.username = mUser.username;
 
         for (BoardListResponse boardListResponse : mBoardList)
             boardList.add(boardListResponse.boardFullName + " (" + boardListResponse.boardShortName + ")");
@@ -130,7 +129,6 @@ public class HomeFragment extends BaseFragment implements RetrofitListener {
         binding.buttonViewAll1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bookListRequest.username = mUser.username;
                 openBookListActivity();
             }
         });
@@ -138,7 +136,6 @@ public class HomeFragment extends BaseFragment implements RetrofitListener {
         binding.buttonViewAll2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bookListRequest.username = mUser.username;
                 openBookListActivity();
             }
         });
@@ -146,7 +143,6 @@ public class HomeFragment extends BaseFragment implements RetrofitListener {
         binding.buttonViewAll3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bookListRequest.username = mUser.username;
                 openBookListActivity();
             }
         });

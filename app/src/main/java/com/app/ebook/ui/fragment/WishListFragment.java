@@ -142,9 +142,7 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
     }
 
     private void getWishList() {
-        BookListRequest bookListRequest = new BookListRequest();
-        bookListRequest.username = mUser.username;
-        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getWishList(bookListRequest),
+        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getWishList(),
                 UrlConstants.URL_WISH_LIST);
     }
 

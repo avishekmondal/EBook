@@ -68,9 +68,6 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
 
         if (getIntent().hasExtra(BOOK_LIST_REQUEST_EXTRA))
             bookListRequest = (BookListRequest) getIntent().getSerializableExtra(BOOK_LIST_REQUEST_EXTRA);
-        else{
-            bookListRequest.username = mUser.username;
-        }
         Log.v("aa", new Gson().toJson(bookListRequest));
     }
 
