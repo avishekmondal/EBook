@@ -40,7 +40,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         final CartListResponse.ReturnDataBean dataBean = data.get(position);
 
         itemViewBinding.textViewBook.setText(dataBean.bookName);
-        itemViewBinding.textViewDuration.setText("(" + dataBean.duration + " Months)");
+        itemViewBinding.textViewDuration.setText("(" + dataBean.duration + " Days)");
         itemViewBinding.textViewPrice.setText(!dataBean.price.equals("0") ? "Rs. " + dataBean.price : "FREE");
 
         AppUtilities.loadImage(mContext, itemViewBinding.imageViewBook, dataBean.coverPhoto);
