@@ -26,9 +26,11 @@ import hb.xvideoplayer.MxVideoPlayerWidget;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_VIDEO_LIST;
 import static com.app.ebook.network.UrlConstants.URL_VIDEO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PAUSE;
 import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PLAYING;
 
@@ -90,8 +92,14 @@ public class VideoListActivity extends BaseActivity implements RetrofitListener,
 
             VideoListRequest videoListRequest = new VideoListRequest();
             videoListRequest.bookId = mSessionManager.getSession(BOOK_ID);
-            retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getVideoList(videoListRequest),
-                    URL_VIDEO_LIST);
+
+            if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewVideoList(videoListRequest),
+                        URL_PREVIEW_VIDEO_LIST);
+            } else {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getVideoList(videoListRequest),
+                        URL_VIDEO_LIST);
+            }
         } else {
             showSnackBar(binding.rootLayout, getString(R.string.no_connection));
         }

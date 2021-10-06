@@ -28,7 +28,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.app.ebook.network.UrlConstants.URL_BOOK_CHAPTER_LIST;
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.BOOK_NAME;
@@ -224,8 +224,8 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
         BookChapterListRequest bookChapterListRequest = new BookChapterListRequest();
         bookChapterListRequest.bookId = returnResponseBean.bookId;
 
-        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getBookChapterList(bookChapterListRequest),
-                URL_BOOK_CHAPTER_LIST);
+        makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewBookChapterList(bookChapterListRequest),
+                URL_PREVIEW_BOOK_CHAPTER_LIST);
     }
 
     /*private void getBookDetails() {
@@ -261,7 +261,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
                 } else
                     showSnackBar(binding.rootLayout, getString(R.string.something_went_wrong));
                 break;*/
-            case UrlConstants.URL_BOOK_CHAPTER_LIST:
+            case UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST:
                 BookChapterListResponse chapterListResponse = (BookChapterListResponse) response.body();
                 if (chapterListResponse != null && chapterListResponse.retCode) {
                     List<ReturnData> chapterList = chapterListResponse.returnData;

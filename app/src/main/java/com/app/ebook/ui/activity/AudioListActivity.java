@@ -24,8 +24,10 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import static com.app.ebook.network.UrlConstants.URL_AUDIO_LIST;
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_AUDIO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
 public class AudioListActivity extends BaseActivity implements RetrofitListener,
         MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener {
@@ -216,8 +218,14 @@ public class AudioListActivity extends BaseActivity implements RetrofitListener,
 
             AudioListRequest audioListRequest = new AudioListRequest();
             audioListRequest.bookId = mSessionManager.getSession(BOOK_ID);
-            retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getAudioList(audioListRequest),
-                    URL_AUDIO_LIST);
+
+            if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewAudioList(audioListRequest),
+                        URL_PREVIEW_AUDIO_LIST);
+            } else {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getAudioList(audioListRequest),
+                        URL_AUDIO_LIST);
+            }
         } else {
             showSnackBar(binding.rootLayout, getString(R.string.no_connection));
         }

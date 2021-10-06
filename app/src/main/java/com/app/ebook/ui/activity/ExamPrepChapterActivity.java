@@ -23,6 +23,7 @@ import retrofit2.Response;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.BOOK_NAME;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 import static com.app.ebook.util.Constants.KEY;
 
 public class ExamPrepChapterActivity extends BaseActivity implements RetrofitListener {
@@ -69,12 +70,23 @@ public class ExamPrepChapterActivity extends BaseActivity implements RetrofitLis
         ExamPrepChapterListRequest examPrepChapterListRequest = new ExamPrepChapterListRequest();
         examPrepChapterListRequest.bookId = mSessionManager.getSession(BOOK_ID);
 
-        if (mSessionManager.getSession(KEY).equalsIgnoreCase(getString(R.string.menu_mcq)))
-            makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getMcqChapterList(examPrepChapterListRequest),
-                    UrlConstants.URL_MCQ_CHAPTER_LIST);
-        else
-            makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getSubjectiveChapterList(examPrepChapterListRequest),
-                    UrlConstants.URL_SUBJECTIVE_CHAPTER_LIST);
+        if (mSessionManager.getSession(KEY).equalsIgnoreCase(getString(R.string.menu_mcq))) {
+            if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewMcqChapterList(examPrepChapterListRequest),
+                        UrlConstants.URL_PREVIEW_MCQ_CHAPTER_LIST);
+            } else {
+                makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getMcqChapterList(examPrepChapterListRequest),
+                        UrlConstants.URL_MCQ_CHAPTER_LIST);
+            }
+        } else {
+            if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewSubjectiveChapterList(examPrepChapterListRequest),
+                        UrlConstants.URL_PREVIEW_SUBJECTIVE_CHAPTER_LIST);
+            } else {
+                makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getSubjectiveChapterList(examPrepChapterListRequest),
+                        UrlConstants.URL_SUBJECTIVE_CHAPTER_LIST);
+            }
+        }
     }
 
     @Override

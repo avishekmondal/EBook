@@ -24,6 +24,7 @@ import retrofit2.Response;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.CHAPTER;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
 public class ExamPrepQuestionActivity extends BaseActivity implements RetrofitListener {
 
@@ -62,8 +63,14 @@ public class ExamPrepQuestionActivity extends BaseActivity implements RetrofitLi
             SubjectiveListRequest subjectiveListRequest = new SubjectiveListRequest();
             subjectiveListRequest.bookId = mSessionManager.getSession(BOOK_ID);
             subjectiveListRequest.chapter = mSessionManager.getSession(CHAPTER);
-            retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getSubjectiveList(subjectiveListRequest),
-                    UrlConstants.URL_SUBJECTIVE_LIST);
+
+            if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewSubjectiveList(subjectiveListRequest),
+                        UrlConstants.URL_PREVIEW_SUBJECTIVE_LIST);
+            } else {
+                retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getSubjectiveList(subjectiveListRequest),
+                        UrlConstants.URL_SUBJECTIVE_LIST);
+            }
         } else {
             showSnackBar(binding.rootLayout, getString(R.string.no_connection));
         }
