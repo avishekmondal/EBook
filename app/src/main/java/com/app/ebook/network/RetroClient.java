@@ -3,7 +3,9 @@ package com.app.ebook.network;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.app.ebook.R;
 import com.app.ebook.models.BoardListResponse;
 import com.app.ebook.models.CheckDuplicateProfileRequest;
 import com.app.ebook.models.CheckDuplicateProfileResponse;
@@ -57,6 +59,9 @@ import com.app.ebook.models.subjective.SubjectiveListRequest;
 import com.app.ebook.models.subjective.SubjectiveListResponse;
 import com.app.ebook.models.wish_list.AddToWishListRequest;
 import com.app.ebook.models.wish_list.AddToWishListResponse;
+import com.app.ebook.ui.activity.BaseActivity;
+import com.app.ebook.ui.activity.LoginActivity;
+import com.app.ebook.util.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -105,7 +110,8 @@ public class RetroClient {
                 .addInterceptor(new Interceptor() {
                     @Override
                     public okhttp3.Response intercept(Chain chain) throws IOException {
-                        Request request = chain.request().newBuilder().addHeader("x-access-token", "").build();
+                        Request request = chain.request().newBuilder().addHeader("Authorization",
+                                "Bearer " + ((BaseActivity) mContext).mSessionManager.getSession(Constants.USER_TOKEN)).build();
                         return chain.proceed(request);
                     }
                 })
@@ -135,13 +141,22 @@ public class RetroClient {
                     Log.v("TAG", "onResponse :" + method_name);
                     retroListener.onSuccess(call, response, method_name);
                 } else {
-                    switch (method) {
-                        case UrlConstants.URL_LOGIN:
-                            error_message = "Unable to log in with provided credentials.";
-                            break;
-                        default:
-                            error_message = "";
-                            break;
+                    if (response.code() == 401) {
+                        error_message = "Session Timed Out.";
+                        Toast.makeText(mContext, error_message, Toast.LENGTH_LONG).show();
+                        ((BaseActivity) mContext).mSessionManager.setSession(Constants.IS_LOGGEDIN, false);
+                        ((BaseActivity) mContext).mSessionManager.setSession(Constants.USER_TOKEN, "");
+                        ((BaseActivity) mContext).startTargetActivityNewTask(LoginActivity.class);
+                        ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    } else {
+                        switch (method) {
+                            case UrlConstants.URL_LOGIN:
+                                error_message = "Unable to log in with provided credentials.";
+                                break;
+                            default:
+                                error_message = "";
+                                break;
+                        }
                     }
                     retroListener.onFailure(error_message);
                 }
@@ -241,7 +256,7 @@ public class RetroClient {
         Call<SubjectiveListResponse> getSubjectiveList(@Body SubjectiveListRequest body);
 
         @POST(UrlConstants.URL_WISH_LIST)
-        Call<BookListResponse> getWishList(@Body BookListRequest body);
+        Call<BookListResponse> getWishList();
 
         @POST(UrlConstants.URL_ADD_WISH_LIST)
         Call<AddToWishListResponse> addWishList(@Body AddToWishListRequest body);
@@ -250,7 +265,7 @@ public class RetroClient {
         Call<AddToWishListResponse> deleteWishList(@Body AddToWishListRequest body);
 
         @POST(UrlConstants.URL_LIBRARY_LIST)
-        Call<BookListResponse> getLibraryList(@Body BookListRequest body);
+        Call<BookListResponse> getLibraryList();
 
         @POST(UrlConstants.URL_SUBSCRIPTION_PLAN_LIST)
         Call<SubscriptionPlanListResponse> getSubscriptionPlanList(@Body SubscriptionPlanListRequest body);

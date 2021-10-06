@@ -128,6 +128,7 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
                 dialog.dismiss();
 
                 mSessionManager.setSession(Constants.IS_LOGGEDIN, false);
+                mSessionManager.setSession(Constants.USER_TOKEN, "");
                 startTargetActivityNewTask(LoginActivity.class);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
@@ -160,9 +161,6 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
             if (logoutResponse != null) {
                 AppUtilities.showSnackBar(binding.drawerLayout, logoutResponse.responseMessage);
                 if (logoutResponse.responseCode == 200) {
-                    /*Paper.book().delete(Constants.IS_LOGGEDIN);
-                    Paper.book().delete(Constants.CURRENT_USER);
-                    Paper.book().delete(Constants.USER_TOKEN);*/
                     startActivity(new Intent(this, LoginActivity.class));
                     finish();
                 }
