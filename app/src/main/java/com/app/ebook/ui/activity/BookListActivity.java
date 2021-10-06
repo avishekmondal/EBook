@@ -90,9 +90,15 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
 
     @Override
     public void onBookListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
-        Intent intent = new Intent(this, BookDetailsActivity.class);
-        intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-        startActivityForResult(intent, 1);
+        if (!returnResponseBean.isSubscribed) {
+            Intent intent = new Intent(this, BookDetailsActivity.class);
+            intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
+            startActivityForResult(intent, 1);
+        } else {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
+            startTargetActivity(LibraryBookDetailsActivity.class, bundle);
+        }
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
