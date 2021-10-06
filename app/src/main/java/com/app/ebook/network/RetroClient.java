@@ -228,6 +228,29 @@ public class RetroClient {
         @POST(UrlConstants.URL_BOOK_CONTENT)
         Call<BookContentResponse> getBookContent(@Body BookContentRequest body);
 
+        // Preview Details
+        @POST(UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST)
+        Call<BookChapterListResponse> getPreviewBookChapterList(@Body BookChapterListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_AUDIO_LIST)
+        Call<AudioListResponse> getPreviewAudioList(@Body AudioListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_VIDEO_LIST)
+        Call<VideoListResponse> getPreviewVideoList(@Body VideoListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_MCQ_CHAPTER_LIST)
+        Call<ExamPrepChapterListResponse> getPreviewMcqChapterList(@Body ExamPrepChapterListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_MCQ_LIST)
+        Call<MCQListResponse> getPreviewMCQList(@Body MCQListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_SUBJECTIVE_CHAPTER_LIST)
+        Call<ExamPrepChapterListResponse> getPreviewSubjectiveChapterList(@Body ExamPrepChapterListRequest body);
+
+        @POST(UrlConstants.URL_PREVIEW_SUBJECTIVE_LIST)
+        Call<SubjectiveListResponse> getPreviewSubjectiveList(@Body SubjectiveListRequest body);
+
+        // Library Details
         @POST(UrlConstants.URL_BOOK_CHAPTER_LIST)
         Call<BookChapterListResponse> getBookChapterList(@Body BookChapterListRequest body);
 
@@ -237,23 +260,25 @@ public class RetroClient {
         @POST(UrlConstants.URL_VIDEO_LIST)
         Call<VideoListResponse> getVideoList(@Body VideoListRequest body);
 
+        @POST(UrlConstants.URL_MCQ_CHAPTER_LIST)
+        Call<ExamPrepChapterListResponse> getMcqChapterList(@Body ExamPrepChapterListRequest body);
+
+        @POST(UrlConstants.URL_MCQ_LIST)
+        Call<MCQListResponse> getMCQList(@Body MCQListRequest body);
+
+        @POST(UrlConstants.URL_SUBJECTIVE_CHAPTER_LIST)
+        Call<ExamPrepChapterListResponse> getSubjectiveChapterList(@Body ExamPrepChapterListRequest body);
+
+        @POST(UrlConstants.URL_SUBJECTIVE_LIST)
+        Call<SubjectiveListResponse> getSubjectiveList(@Body SubjectiveListRequest body);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
         @POST(UrlConstants.URL_BOOK_AUDIO_LIST)
         Call<BookChapterListResponse> getBookAudioList(@Body BookChapterListRequest body);
 
         @POST(UrlConstants.URL_BOOK_VIDEO_LIST)
         Call<BookChapterListResponse> getBookVideoList(@Body BookChapterListRequest body);
-
-        @POST(UrlConstants.URL_MCQ_CHAPTER_LIST)
-        Call<ExamPrepChapterListResponse> getMcqChapterList(@Body ExamPrepChapterListRequest body);
-
-        @POST(UrlConstants.URL_SUBJECTIVE_CHAPTER_LIST)
-        Call<ExamPrepChapterListResponse> getSubjectiveChapterList(@Body ExamPrepChapterListRequest body);
-
-        @POST(UrlConstants.URL_MCQ_LIST)
-        Call<MCQListResponse> getMCQList(@Body MCQListRequest body);
-
-        @POST(UrlConstants.URL_SUBJECTIVE_LIST)
-        Call<SubjectiveListResponse> getSubjectiveList(@Body SubjectiveListRequest body);
 
         @POST(UrlConstants.URL_WISH_LIST)
         Call<BookListResponse> getWishList();
@@ -284,7 +309,6 @@ public class RetroClient {
 
         @POST(UrlConstants.URL_SUBSCRIPTION_LIST)
         Call<SubscriptionListResponse> getSubscriptionList(@Body SubscriptionListRequest body);
-
 
         @GET(UrlConstants.URL_LOGOUT)
         Call<LogoutResponse> logout();
