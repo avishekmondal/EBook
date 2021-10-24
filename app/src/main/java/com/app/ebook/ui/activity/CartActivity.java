@@ -67,10 +67,14 @@ public class CartActivity extends BaseActivity implements RetrofitListener, Cart
     }
 
     public void onClickProceedToCheckout(View view) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(OrderSummaryActivity.ORDER_SUMMARY_EXTRA, (Serializable) cartAdapter.getSelectedCartList());
-        startTargetActivity(OrderSummaryActivity.class, bundle);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (cartAdapter.getSelectedCartList().size() > 0) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(OrderSummaryActivity.ORDER_SUMMARY_EXTRA, (Serializable) cartAdapter.getSelectedCartList());
+            startTargetActivity(OrderSummaryActivity.class, bundle);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        } else {
+            showSnackBar(binding.rootLayout, getString(R.string.select_atleast_one));
+        }
     }
 
     @Override
@@ -98,7 +102,6 @@ public class CartActivity extends BaseActivity implements RetrofitListener, Cart
         });
 
         dialog.show();
-
     }
 
     private void makeNetworkCall(Call call, String method) {

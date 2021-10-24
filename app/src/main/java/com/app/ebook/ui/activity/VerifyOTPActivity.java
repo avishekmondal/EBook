@@ -74,7 +74,7 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
             isUpdateProfile = true;
         }
 
-        binding.textViewVerificationText.setText("Enter OTP sent to " + verifyOTPRequest.email);
+        binding.textViewVerificationText.setText("Enter OTP sent to your email and mobile");
 
         binding.otpView.setOtpListener(new OTPListener() {
             @Override
