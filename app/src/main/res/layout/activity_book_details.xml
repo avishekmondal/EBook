@@ -77,8 +77,8 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
-                android:padding="@dimen/_2sdp"
                 android:onClick="onClickCart"
+                android:padding="@dimen/_2sdp"
                 app:srcCompat="@drawable/ic_cart"
                 app:tint="@color/white" />
 
@@ -181,15 +181,6 @@
                                 android:textStyle="bold" />
 
                         </LinearLayout>
-
-                        <Button
-                            android:id="@+id/buttonSubscribe"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Subscribe Now"
-                            android:onClick="onClickSubscribe"
-                            android:textSize="@dimen/micro_text" />
-
                     </LinearLayout>
                 </LinearLayout>
 
@@ -303,5 +294,35 @@
                 </androidx.core.widget.NestedScrollView>
             </LinearLayout>
         </com.amar.library.ui.StickyScrollView>
+
+        <LinearLayout
+            android:id="@+id/layoutSubscribeNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ddffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/subscribe_more_coaching"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/mini_text"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:onClick="onClickSubscribe"
+                android:text="Subscribe Now"
+                android:textSize="@dimen/small_text" />
+
+        </LinearLayout>
     </RelativeLayout>
 </layout>

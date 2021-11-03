@@ -21,8 +21,6 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
-import static com.app.ebook.util.Constants.BOOK_NAME;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 import static com.app.ebook.util.Constants.KEY;
 
@@ -50,7 +48,12 @@ public class ExamPrepChapterActivity extends BaseActivity implements RetrofitLis
     private void init() {
         retroClient = new RetroClient(this, this);
 
-        binding.textViewTitle.setText(mSessionManager.getSession(BOOK_NAME));
+        binding.textViewTitle.setText(mBookDetails.bookName);
+        if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+            binding.layoutSubscribeNow.setVisibility(View.VISIBLE);
+        } else {
+            binding.layoutSubscribeNow.setVisibility(View.GONE);
+        }
     }
 
     public void onClickBack(View view) {
@@ -68,7 +71,7 @@ public class ExamPrepChapterActivity extends BaseActivity implements RetrofitLis
 
     private void getChapterList() {
         ExamPrepChapterListRequest examPrepChapterListRequest = new ExamPrepChapterListRequest();
-        examPrepChapterListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+        examPrepChapterListRequest.bookId = mBookDetails.bookId;
 
         if (mSessionManager.getSession(KEY).equalsIgnoreCase(getString(R.string.menu_mcq))) {
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {

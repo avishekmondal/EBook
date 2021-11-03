@@ -188,8 +188,7 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
         if (item.getItemId() == R.id.menu_notification) {
             return true;
         } else if (item.getItemId() == R.id.menu_cart) {
-            startTargetActivity(CartActivity.class);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            goToCartActivity();
             return true;
         }
 

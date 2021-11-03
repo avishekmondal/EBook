@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
 import com.app.ebook.databinding.ActivityEBookBinding;
-import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.util.WheelView;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.listener.OnRenderListener;
@@ -27,11 +26,7 @@ import java.util.List;
 
 public class EBookActivity extends BaseActivity {
 
-    public static final String BOOK_DETAILS_EXTRA = "BookDetailsExtra";
-
     private ActivityEBookBinding binding;
-
-    private BookListResponse.ReturnResponseBean returnResponseBean = new BookListResponse.ReturnResponseBean();
 
     private int totalPage, currentPage = 0;
 
@@ -52,12 +47,12 @@ public class EBookActivity extends BaseActivity {
     }
 
     private void init() {
-        if (getIntent().hasExtra(BOOK_DETAILS_EXTRA))
-            returnResponseBean = (BookListResponse.ReturnResponseBean) getIntent().getSerializableExtra(BOOK_DETAILS_EXTRA);
+        binding.textViewBook.setText(mBookDetails.bookName);
+        new PDFStream().execute(mBookDetails.attachmentFile);
+    }
 
-        binding.textViewBook.setText(returnResponseBean.bookName);
-        new PDFStream().execute(returnResponseBean.attachmentFile);
-        //new PDFStream().execute(BASE_URL2 + "/media/attachments/Science_Experiments_for_Kids__PDFDrive__49O463v.pdf");
+    public void onClickSubscribe(View view) {
+        goToSubscriptionPlanActivity();
     }
 
     private void initClickListener() {
@@ -164,6 +159,12 @@ public class EBookActivity extends BaseActivity {
                             totalPage = pageCount;
                             currentPage = page;
                             binding.buttonPageNo.setText(String.valueOf(currentPage + 1));
+
+                            if (currentPage == totalPage - 1) {
+                                binding.layoutSubscribeNow.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.layoutSubscribeNow.setVisibility(View.GONE);
+                            }
                         }
                     })
                     .onRender(new OnRenderListener() {

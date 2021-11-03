@@ -29,6 +29,7 @@ import com.app.ebook.R;
 import com.app.ebook.models.BoardListResponse;
 import com.app.ebook.models.ClassListResponse;
 import com.app.ebook.models.UserDetailsResponse;
+import com.app.ebook.models.book_list.BookListResponse;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -317,6 +318,16 @@ public class AppUtilities {
             userDetailsResponse = mGson.fromJson(apiResponse, UserDetailsResponse.class);
         }
         return userDetailsResponse;
+    }
+
+    public static BookListResponse.ReturnResponseBean getBookDetails(Context mContext) {
+        BookListResponse.ReturnResponseBean returnResponseBean = null;
+        String apiResponse = new SessionManager(mContext).getSession(Constants.BOOK_DETAILS);
+        if (!apiResponse.equals("")) {
+            Gson mGson = new GsonBuilder().create();
+            returnResponseBean = mGson.fromJson(apiResponse, BookListResponse.ReturnResponseBean.class);
+        }
+        return returnResponseBean;
     }
 
 }

@@ -23,8 +23,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.app.ebook.util.Constants.BOOK_PDF;
-
 public class EBookFragment extends BaseFragment {
 
     private FragmentEBookBinding binding;
@@ -42,7 +40,7 @@ public class EBookFragment extends BaseFragment {
     }
 
     private void init() {
-        new PDFStream().execute(mSessionManager.getSession(BOOK_PDF));
+        new PDFStream().execute(mBookDetails.attachmentFile);
     }
 
     private void initClickListener() {
@@ -122,7 +120,7 @@ public class EBookFragment extends BaseFragment {
         @Override
         protected void onPostExecute(InputStream inputStream) {
             binding.pdfView.fromStream(inputStream)
-                    .enableSwipe(false) // allows to block changing pages using swipe
+                    .enableSwipe(true) // allows to block changing pages using swipe
                     .swipeHorizontal(true)
                     .pageSnap(true)
                     .autoSpacing(true)

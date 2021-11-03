@@ -8,9 +8,7 @@ public interface Constants {
     String IS_SUBSCRIBED = "is_subscribed";
     String CURRENT_USER = "current_user";
     String USER_TOKEN = "access_token";
-    String BOOK_ID = "book_id";
-    String BOOK_NAME = "book_name";
-    String BOOK_PDF = "book_pdf";
+    String BOOK_DETAILS = "book_details";
     String KEY = "key";
     String CHAPTER = "chapter";
     String MEDIA_CHAPTER = "media_chapter";

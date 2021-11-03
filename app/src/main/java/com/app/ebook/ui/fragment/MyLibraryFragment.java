@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
 import com.app.ebook.databinding.FragmentMyLibraryBinding;
-import com.app.ebook.models.book_list.BookListRequest;
 import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.network.RetroClient;
 import com.app.ebook.network.RetrofitListener;
@@ -18,6 +17,8 @@ import com.app.ebook.network.UrlConstants;
 import com.app.ebook.ui.activity.LibraryBookDetailsActivity;
 import com.app.ebook.ui.adapter.LibraryListAdapter;
 import com.app.ebook.util.AppUtilities;
+import com.app.ebook.util.Constants;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -51,9 +52,9 @@ public class MyLibraryFragment extends BaseFragment implements RetrofitListener,
 
     @Override
     public void onLibraryListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-        startTargetActivity(LibraryBookDetailsActivity.class, bundle);
+        mSessionManager.setSession(Constants.IS_SUBSCRIBED, true);
+        mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+        startTargetActivity(LibraryBookDetailsActivity.class);
         getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 

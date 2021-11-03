@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
@@ -20,7 +19,9 @@ import com.app.ebook.util.AppUtilities;
 
 import java.util.List;
 
-public class SmartBookActivity extends AppCompatActivity {
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+
+public class SmartBookActivity extends BaseActivity {
 
     public static final String SMART_BOOK_REQUEST_EXTRA = "SmartBookRequestExtra";
 
@@ -83,10 +84,20 @@ public class SmartBookActivity extends AppCompatActivity {
                 binding.layoutContent.addView(imageView);
             }
         }
+
+        if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+            binding.layoutSubscribeNow.setVisibility(View.VISIBLE);
+        } else {
+            binding.layoutSubscribeNow.setVisibility(View.GONE);
+        }
     }
 
     public void onClickBack(View view) {
         onBackPressed();
+    }
+
+    public void onClickSubscribe(View view) {
+        goToSubscriptionPlanActivity();
     }
 
 }

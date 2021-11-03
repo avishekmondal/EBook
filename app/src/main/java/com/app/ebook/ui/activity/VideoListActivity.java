@@ -29,7 +29,6 @@ import retrofit2.Response;
 import static com.app.ebook.network.UrlConstants.URL_PREVIEW_VIDEO_LIST;
 import static com.app.ebook.network.UrlConstants.URL_VIDEO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PAUSE;
 import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PLAYING;
@@ -86,17 +85,23 @@ public class VideoListActivity extends BaseActivity implements RetrofitListener,
         onBackPressed();
     }
 
+    public void onClickSubscribe(View view) {
+        goToSubscriptionPlanActivity();
+    }
+
     private void getVideoList() {
         if (AppUtilities.getInstance(this).isOnline()) {
             mProgressDialog.showProgressDialog();
 
             VideoListRequest videoListRequest = new VideoListRequest();
-            videoListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+            videoListRequest.bookId = mBookDetails.bookId;
 
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                binding.layoutSubscribeNow.setVisibility(View.VISIBLE);
                 retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewVideoList(videoListRequest),
                         URL_PREVIEW_VIDEO_LIST);
             } else {
+                binding.layoutSubscribeNow.setVisibility(View.GONE);
                 retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getVideoList(videoListRequest),
                         URL_VIDEO_LIST);
             }

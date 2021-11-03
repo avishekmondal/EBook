@@ -77,8 +77,7 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
     }
 
     public void onClickCart(View view) {
-        startTargetActivity(CartActivity.class);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        goToCartActivity();
     }
 
     @Override
@@ -93,14 +92,13 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
     public void onBookListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
         if (!returnResponseBean.isSubscribed) {
             mSessionManager.setSession(Constants.IS_SUBSCRIBED, false);
+            mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
             Intent intent = new Intent(this, BookDetailsActivity.class);
-            intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startActivityForResult(intent, 1);
         } else {
             mSessionManager.setSession(Constants.IS_SUBSCRIBED, true);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-            startTargetActivity(LibraryBookDetailsActivity.class, bundle);
+            mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+            startTargetActivity(LibraryBookDetailsActivity.class);
         }
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
@@ -136,11 +134,8 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
                 @Override
                 public void onClick(View view) {
                     mPopupWindow.dismiss();
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-                    startTargetActivity(SubscriptionPlanActivity.class, bundle);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                    mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+                    goToSubscriptionPlanActivity();
                 }
             });
 
@@ -148,10 +143,8 @@ public class BookListActivity extends BaseActivity implements RetrofitListener, 
                 @Override
                 public void onClick(View view) {
                     mPopupWindow.dismiss();
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-                    startTargetActivity(SubscriptionPlanActivity.class, bundle);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+                    goToSubscriptionPlanActivity();
                 }
             });
 

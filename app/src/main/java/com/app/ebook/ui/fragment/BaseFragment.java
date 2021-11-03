@@ -6,9 +6,13 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.app.ebook.R;
 import com.app.ebook.models.BoardListResponse;
 import com.app.ebook.models.ClassListResponse;
 import com.app.ebook.models.UserDetailsResponse;
+import com.app.ebook.models.book_list.BookListResponse;
+import com.app.ebook.ui.activity.CartActivity;
+import com.app.ebook.ui.activity.SubscriptionPlanActivity;
 import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.ProgressDialog;
 import com.app.ebook.util.SessionManager;
@@ -23,6 +27,7 @@ public class BaseFragment extends Fragment {
     public List<BoardListResponse> mBoardList = new ArrayList<>();
     public List<ClassListResponse>mClassList = new ArrayList<>();
     public UserDetailsResponse mUser;
+    public BookListResponse.ReturnResponseBean mBookDetails;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class BaseFragment extends Fragment {
         mBoardList = AppUtilities.getBoardList(getActivity());
         mClassList = AppUtilities.getClassList(getActivity());
         mUser = AppUtilities.getUser(getActivity());
+        mBookDetails = AppUtilities.getBookDetails(getActivity());
     }
 
     public void startTargetActivity(Class targetClass) {
@@ -50,5 +56,15 @@ public class BaseFragment extends Fragment {
         mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mIntent);
         getActivity().finish();
+    }
+
+    public void goToCartActivity() {
+        startTargetActivity(CartActivity.class);
+        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void goToSubscriptionPlanActivity() {
+        startTargetActivity(SubscriptionPlanActivity.class);
+        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

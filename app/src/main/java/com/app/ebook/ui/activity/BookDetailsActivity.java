@@ -14,7 +14,6 @@ import com.app.ebook.databinding.ActivityBookDetailsBinding;
 import com.app.ebook.models.book_chapters.BookChapterListRequest;
 import com.app.ebook.models.book_chapters.BookChapterListResponse;
 import com.app.ebook.models.book_chapters.ReturnData;
-import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.models.wish_list.AddToWishListRequest;
 import com.app.ebook.models.wish_list.AddToWishListResponse;
 import com.app.ebook.network.RetroClient;
@@ -30,8 +29,6 @@ import retrofit2.Response;
 
 import static com.app.ebook.network.UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
-import static com.app.ebook.util.Constants.BOOK_NAME;
 import static com.app.ebook.util.Constants.KEY;
 
 public class BookDetailsActivity extends BaseActivity implements RetrofitListener {
@@ -41,7 +38,6 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
     private ActivityBookDetailsBinding binding;
     private RetroClient retroClient;
 
-    private BookListResponse.ReturnResponseBean returnResponseBean = new BookListResponse.ReturnResponseBean();
     private final AddToWishListRequest addToWishListRequest = new AddToWishListRequest();
 
     private boolean isDataChanged = false;
@@ -74,39 +70,29 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
     private void init() {
         retroClient = new RetroClient(this, this);
 
-        if (getIntent().hasExtra(BOOK_DETAILS_EXTRA)) {
-            returnResponseBean = (BookListResponse.ReturnResponseBean) getIntent().getSerializableExtra(BOOK_DETAILS_EXTRA);
-            mSessionManager.setSession(BOOK_ID, returnResponseBean.bookId);
-            mSessionManager.setSession(BOOK_NAME, returnResponseBean.bookName);
-            setBookDetails();
-        }
+        setBookDetails();
     }
 
     private void setBookDetails() {
-        binding.textViewBookName.setText(returnResponseBean.bookName);
-        binding.textViewAuthor.setText("By " + returnResponseBean.authorName);
-        binding.textViewClass.setText("Class " + AppUtilities.getClassName(this, returnResponseBean.sclass));
-        binding.textViewBoard.setText(returnResponseBean.board);
-        binding.textViewPrice.setText("Rs. " + returnResponseBean.bookPrice);
+        binding.textViewBookName.setText(mBookDetails.bookName);
+        binding.textViewAuthor.setText("By " + mBookDetails.authorName);
+        binding.textViewClass.setText("Class " + AppUtilities.getClassName(this, mBookDetails.sclass));
+        binding.textViewBoard.setText(mBookDetails.board);
+        binding.textViewPrice.setText("Rs. " + mBookDetails.bookPrice);
 
-        if (returnResponseBean.isWishlist)
+        if (mBookDetails.isWishlist)
             binding.imageViewWishList.setImageResource(R.drawable.ic_shortlist_fill);
         else
             binding.imageViewWishList.setImageResource(R.drawable.ic_shortlist);
 
-        if (returnResponseBean.isSubscribed)
-            binding.buttonSubscribe.setText("Subscribed");
-        else
-            binding.buttonSubscribe.setText("Subscribe Now");
-
-        AppUtilities.loadImage(this, binding.imageViewBook, returnResponseBean.coverPhoto);
+        AppUtilities.loadImage(this, binding.imageViewBook, mBookDetails.coverPhoto);
 
         binding.stickyScrollView.setScrollViewListener(new IScrollViewListener() {
             @Override
             public void onScrollChanged(int l, int t, int oldl, int oldt) {
                 if (binding.stickyScrollView.isHeaderSticky()) {
                     binding.layoutToolBar.setBackgroundColor(getColor(R.color.colorPrimary));
-                    binding.textViewTitle.setText(returnResponseBean.bookName);
+                    binding.textViewTitle.setText(mBookDetails.bookName);
                     binding.imageViewWishList.setVisibility(View.GONE);
                     binding.imageViewCart.setVisibility(View.GONE);
                 } else {
@@ -130,9 +116,9 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
 
     public void onClickWishList(View view) {
         addToWishListRequest.username = mUser.username;
-        addToWishListRequest.wishlist = returnResponseBean.bookId;
+        addToWishListRequest.wishlist = mBookDetails.bookId;
 
-        if (!returnResponseBean.isWishlist) {
+        if (!mBookDetails.isWishlist) {
             makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).addWishList(addToWishListRequest),
                     UrlConstants.URL_ADD_WISH_LIST);
         } else {
@@ -142,19 +128,11 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
     }
 
     public void onClickCart(View view) {
-        startTargetActivity(CartActivity.class);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        goToCartActivity();
     }
 
     public void onClickSubscribe(View view) {
-        if (returnResponseBean.isSubscribed)
-            AppUtilities.showToast(this, "Already Subscribed");
-        else {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-            startTargetActivity(SubscriptionPlanActivity.class, bundle);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
+        goToSubscriptionPlanActivity();
     }
 
     public void onClickEBook(View view) {
@@ -163,9 +141,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(EBookActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-                startTargetActivity(EBookActivity.class, bundle);
+                startTargetActivity(EBookActivity.class);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         }, 300);
@@ -222,7 +198,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
 
     private void getChapterList() {
         BookChapterListRequest bookChapterListRequest = new BookChapterListRequest();
-        bookChapterListRequest.bookId = returnResponseBean.bookId;
+        bookChapterListRequest.bookId = mBookDetails.bookId;
 
         makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewBookChapterList(bookChapterListRequest),
                 URL_PREVIEW_BOOK_CHAPTER_LIST);
@@ -279,7 +255,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
                 AddToWishListResponse addToWishListResponse = (AddToWishListResponse) response.body();
                 if (addToWishListResponse != null && addToWishListResponse.retCode) {
                     isDataChanged = true;
-                    returnResponseBean.isWishlist = true;
+                    mBookDetails.isWishlist = true;
                     binding.imageViewWishList.setImageResource(R.drawable.ic_shortlist_fill);
                     showSnackBar(binding.rootLayout, "Book added to WishList");
                 } else {
@@ -290,7 +266,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
                 addToWishListResponse = (AddToWishListResponse) response.body();
                 if (addToWishListResponse != null && addToWishListResponse.retCode) {
                     isDataChanged = true;
-                    returnResponseBean.isWishlist = false;
+                    mBookDetails.isWishlist = false;
                     binding.imageViewWishList.setImageResource(R.drawable.ic_shortlist);
                     showSnackBar(binding.rootLayout, "Book removed from WishList");
                 } else {

@@ -18,7 +18,6 @@ import androidx.databinding.DataBindingUtil;
 import com.app.ebook.R;
 import com.app.ebook.databinding.BookItemMenuBinding;
 import com.app.ebook.databinding.FragmentWishlistBinding;
-import com.app.ebook.models.book_list.BookListRequest;
 import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.models.wish_list.AddToWishListRequest;
 import com.app.ebook.models.wish_list.AddToWishListResponse;
@@ -31,6 +30,7 @@ import com.app.ebook.ui.activity.SubscriptionPlanActivity;
 import com.app.ebook.ui.adapter.BookListAdapter;
 import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.Constants;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -74,14 +74,13 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
     public void onBookListItemClick(BookListResponse.ReturnResponseBean returnResponseBean) {
         if (!returnResponseBean.isSubscribed) {
             mSessionManager.setSession(Constants.IS_SUBSCRIBED, false);
+            mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
             Intent intent = new Intent(getActivity(), BookDetailsActivity.class);
-            intent.putExtra(BookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
             startActivityForResult(intent, 1);
         } else {
             mSessionManager.setSession(Constants.IS_SUBSCRIBED, true);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(LibraryBookDetailsActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-            startTargetActivity(LibraryBookDetailsActivity.class, bundle);
+            mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+            startTargetActivity(LibraryBookDetailsActivity.class);
         }
         getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
@@ -121,10 +120,8 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
             @Override
             public void onClick(View view) {
                 mPopupWindow.dismiss();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-                startTargetActivity(SubscriptionPlanActivity.class, bundle);
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+                goToSubscriptionPlanActivity();
             }
         });
 
@@ -132,10 +129,8 @@ public class WishListFragment extends BaseFragment implements RetrofitListener, 
             @Override
             public void onClick(View view) {
                 mPopupWindow.dismiss();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(SubscriptionPlanActivity.BOOK_DETAILS_EXTRA, returnResponseBean);
-                startTargetActivity(SubscriptionPlanActivity.class, bundle);
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                mSessionManager.setSession(Constants.BOOK_DETAILS, new Gson().toJson(returnResponseBean, BookListResponse.ReturnResponseBean.class));
+                goToSubscriptionPlanActivity();
             }
         });
 

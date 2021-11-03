@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
 import com.app.ebook.databinding.ActivitySubscriptionPlanBinding;
-import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.models.book_subscription.SubscriptionPlanListRequest;
 import com.app.ebook.models.book_subscription.SubscriptionPlanListResponse;
 import com.app.ebook.models.cart.CartListResponse;
@@ -30,16 +29,12 @@ import retrofit2.Response;
 import static com.app.ebook.network.UrlConstants.URL_ADD_CART;
 import static com.app.ebook.network.UrlConstants.URL_SUBSCRIPTION_PLAN_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.AppUtilities.showToast;
 
 public class SubscriptionPlanActivity extends BaseActivity implements RetrofitListener, SubscriptionPlanAdapter.SubscriptionPlanListItemClickListener {
-
-    public static final String BOOK_DETAILS_EXTRA = "BookDetailsExtra";
 
     private ActivitySubscriptionPlanBinding binding;
     private RetroClient retroClient;
 
-    private BookListResponse.ReturnResponseBean bookDataBean = new BookListResponse.ReturnResponseBean();
     private SubscriptionPlanListResponse.ReturnDataBean subscriptionDataBean;
 
     @Override
@@ -60,15 +55,9 @@ public class SubscriptionPlanActivity extends BaseActivity implements RetrofitLi
     private void init() {
         retroClient = new RetroClient(this, this);
 
-        if (getIntent().hasExtra(BOOK_DETAILS_EXTRA)) {
-            bookDataBean = (BookListResponse.ReturnResponseBean) getIntent().getSerializableExtra(BOOK_DETAILS_EXTRA);
-            binding.textViewBookName.setText(bookDataBean.bookName);
+        binding.textViewBookName.setText(mBookDetails.bookName);
+        getSubscriptionPlanList();
 
-            getSubscriptionPlanList();
-        } else {
-            showToast(this, getResources().getString(R.string.something_went_wrong));
-            onBackPressed();
-        }
     }
 
     public void onClickBack(View view) {
@@ -84,8 +73,8 @@ public class SubscriptionPlanActivity extends BaseActivity implements RetrofitLi
         if (subscriptionDataBean != null) {
             List<CartListResponse.ReturnDataBean> cartList = new ArrayList<>();
             CartListResponse.ReturnDataBean returnDataBean = new CartListResponse.ReturnDataBean();
-            returnDataBean.bookName = bookDataBean.bookName;
-            returnDataBean.coverPhoto = bookDataBean.coverPhoto;
+            returnDataBean.bookName = mBookDetails.bookName;
+            returnDataBean.coverPhoto = mBookDetails.coverPhoto;
             returnDataBean.productId = subscriptionDataBean.productId;
             returnDataBean.bookId = subscriptionDataBean.bookId;
             returnDataBean.plan = subscriptionDataBean.plan;
@@ -117,7 +106,7 @@ public class SubscriptionPlanActivity extends BaseActivity implements RetrofitLi
 
     private void getSubscriptionPlanList() {
         SubscriptionPlanListRequest subscriptionPlanListRequest = new SubscriptionPlanListRequest();
-        subscriptionPlanListRequest.bookId = bookDataBean.bookId;
+        subscriptionPlanListRequest.bookId = mBookDetails.bookId;
         makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getSubscriptionPlanList(subscriptionPlanListRequest),
                 URL_SUBSCRIPTION_PLAN_LIST);
     }

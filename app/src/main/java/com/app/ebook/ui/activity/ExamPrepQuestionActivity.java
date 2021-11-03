@@ -22,7 +22,6 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.CHAPTER;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
@@ -61,7 +60,7 @@ public class ExamPrepQuestionActivity extends BaseActivity implements RetrofitLi
         if (AppUtilities.getInstance(this).isOnline()) {
             mProgressDialog.showProgressDialog();
             SubjectiveListRequest subjectiveListRequest = new SubjectiveListRequest();
-            subjectiveListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+            subjectiveListRequest.bookId = mBookDetails.bookId;
             subjectiveListRequest.chapter = mSessionManager.getSession(CHAPTER);
 
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {

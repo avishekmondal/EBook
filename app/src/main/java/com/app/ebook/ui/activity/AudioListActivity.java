@@ -26,7 +26,6 @@ import retrofit2.Response;
 import static com.app.ebook.network.UrlConstants.URL_AUDIO_LIST;
 import static com.app.ebook.network.UrlConstants.URL_PREVIEW_AUDIO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
 public class AudioListActivity extends BaseActivity implements RetrofitListener,
@@ -78,6 +77,10 @@ public class AudioListActivity extends BaseActivity implements RetrofitListener,
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnCompletionListener(this);
         binding.seekBar.setOnSeekBarChangeListener(this);
+    }
+
+    public void onClickSubscribe(View view) {
+        goToSubscriptionPlanActivity();
     }
 
     public void onClickBackward(View view) {
@@ -217,12 +220,14 @@ public class AudioListActivity extends BaseActivity implements RetrofitListener,
             mProgressDialog.showProgressDialog();
 
             AudioListRequest audioListRequest = new AudioListRequest();
-            audioListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+            audioListRequest.bookId = mBookDetails.bookId;
 
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
+                binding.layoutSubscribeNow.setVisibility(View.VISIBLE);
                 retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewAudioList(audioListRequest),
                         URL_PREVIEW_AUDIO_LIST);
             } else {
+                binding.layoutSubscribeNow.setVisibility(View.GONE);
                 retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getAudioList(audioListRequest),
                         URL_AUDIO_LIST);
             }

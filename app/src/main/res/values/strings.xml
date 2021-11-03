@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">Readvi</string>
+<resources translatable="false">
+    <string name="app_name" >Readvi</string>
     <string name="no_connection">Please check internet connection</string>
     <string name="something_went_wrong">Something went Wrong!</string>
     <string name="no_books">No Books available!</string>
@@ -52,7 +52,12 @@
     <string name="education_board">Education Board</string>
     <string name="dummy_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget enim velit. Mauris semper lectus dolor, eu pellentesque dui volutpat ac. Donec efficitur quam vel maximus cursus. Donec pretium facilisis dignissim. Phasellus sodales nulla vitae auctor hendrerit. Curabitur vehicula diam eu leo ornare sodales. Aenean scelerisque convallis condimentum. Integer viverra nisl efficitur urna consequat blandit. Nullam porttitor porta placerat. Suspendisse eu tortor quis quam gravida aliquet. Phasellus condimentum quam at erat egestas facilisis. Sed non lorem aliquam, rutrum diam eu, iaculis sem. Vestibulum molestie nulla eget lorem consequat pretium. In hac habitasse platea dictumst. Ut at diam mattis, convallis arcu ac, bibendum urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget enim velit. Mauris semper lectus dolor, eu pellentesque dui volutpat ac. Donec efficitur quam vel maximus cursus. Donec pretium facilisis dignissim. Phasellus sodales nulla vitae auctor hendrerit. Curabitur vehicula diam eu leo ornare sodales. Aenean scelerisque convallis condimentum. Integer viverra nisl efficitur urna consequat blandit. Nullam porttitor porta placerat. Suspendisse eu tortor quis quam gravida aliquet. Phasellus condimentum quam at erat egestas facilisis. Sed non lorem aliquam, rutrum diam eu, iaculis sem. Vestibulum molestie nulla eget lorem consequat pretium. In hac habitasse platea dictumst. Ut at diam mattis, convallis arcu ac, bibendum urna.</string>
     <string name="menu_subjective">Subjective</string>
-    <string name="menu_mcq">MCQs</string>
+    <string name="menu_mcq">MCQs</string>\
+    <string name="subscribe_more_coaching">To read more chapter</string>
+    <string name="subscribe_more_read">To read more</string>
+    <string name="subscribe_more_audio">To listen more audio</string>
+    <string name="subscribe_more_video">To view more video</string>
+    <string name="subscribe_more_exam_prep">To prepare with more questions</string>
 
     <string-array name="Class">
         <item>I</item>

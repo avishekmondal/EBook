@@ -6,9 +6,11 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.ebook.R;
 import com.app.ebook.models.BoardListResponse;
 import com.app.ebook.models.ClassListResponse;
 import com.app.ebook.models.UserDetailsResponse;
+import com.app.ebook.models.book_list.BookListResponse;
 import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.ProgressDialog;
 import com.app.ebook.util.SessionManager;
@@ -23,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public List<BoardListResponse> mBoardList = new ArrayList<>();
     public List<ClassListResponse>mClassList = new ArrayList<>();
     public UserDetailsResponse mUser;
+    public BookListResponse.ReturnResponseBean mBookDetails;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -33,6 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         mBoardList = AppUtilities.getBoardList(this);
         mClassList = AppUtilities.getClassList(this);
         mUser = AppUtilities.getUser(this);
+        mBookDetails = AppUtilities.getBookDetails(this);
     }
 
     @Override
@@ -64,6 +68,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mIntent);
         finish();
+    }
+
+    public void goToCartActivity() {
+        startTargetActivity(CartActivity.class);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void goToSubscriptionPlanActivity() {
+        startTargetActivity(SubscriptionPlanActivity.class);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 }

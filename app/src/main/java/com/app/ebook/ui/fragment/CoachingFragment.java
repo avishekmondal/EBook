@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 import static com.app.ebook.network.UrlConstants.URL_BOOK_CHAPTER_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
 
 public class CoachingFragment extends BaseFragment implements RetrofitListener {
 
@@ -62,7 +61,7 @@ public class CoachingFragment extends BaseFragment implements RetrofitListener {
 
     private void getChapterList() {
         BookChapterListRequest bookChapterListRequest = new BookChapterListRequest();
-        bookChapterListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+        bookChapterListRequest.bookId = mBookDetails.bookId;
 
         makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getBookChapterList(bookChapterListRequest),
                 URL_BOOK_CHAPTER_LIST);

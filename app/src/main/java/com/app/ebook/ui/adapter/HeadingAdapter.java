@@ -66,46 +66,34 @@ public class HeadingAdapter extends RecyclerView.Adapter<HeadingAdapter.ViewHold
             itemViewBinding.layoutButtons.setVisibility(View.GONE);
         }
 
-        itemViewBinding.cardViewHeading.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (position != selectedPosition) {
-                    selectedPosition = position;
-                } else {
-                    selectedPosition = -1;
-                }
-                notifyDataSetChanged();
+        itemViewBinding.cardViewHeading.setOnClickListener(view -> {
+            if (position != selectedPosition) {
+                selectedPosition = position;
+            } else {
+                selectedPosition = -1;
             }
+            notifyDataSetChanged();
         });
 
-        itemViewBinding.buttonText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(SmartBookActivity.SMART_BOOK_REQUEST_EXTRA, heading);
-                ((BaseActivity) mContext).startTargetActivity(SmartBookActivity.class, bundle);
-                ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
+        itemViewBinding.buttonText.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(SmartBookActivity.SMART_BOOK_REQUEST_EXTRA, heading);
+            ((BaseActivity) mContext).startTargetActivity(SmartBookActivity.class, bundle);
+            ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
-        itemViewBinding.buttonAudio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mSessionManager.setSession(MEDIA_CHAPTER, heading.chapterIdId);
-                mSessionManager.setSession(MEDIA_HEADING, heading.headingId);
-                ((BaseActivity) mContext).startTargetActivity(AudioListActivity.class);
-                ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
+        itemViewBinding.buttonAudio.setOnClickListener(view -> {
+            mSessionManager.setSession(MEDIA_CHAPTER, heading.chapterIdId);
+            mSessionManager.setSession(MEDIA_HEADING, heading.headingId);
+            ((BaseActivity) mContext).startTargetActivity(AudioListActivity.class);
+            ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
-        itemViewBinding.buttonVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mSessionManager.setSession(MEDIA_CHAPTER, heading.chapterIdId);
-                mSessionManager.setSession(MEDIA_HEADING, heading.headingId);
-                ((BaseActivity) mContext).startTargetActivity(VideoListActivity.class);
-                ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
+        itemViewBinding.buttonVideo.setOnClickListener(view -> {
+            mSessionManager.setSession(MEDIA_CHAPTER, heading.chapterIdId);
+            mSessionManager.setSession(MEDIA_HEADING, heading.headingId);
+            ((BaseActivity) mContext).startTargetActivity(VideoListActivity.class);
+            ((BaseActivity) mContext).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
     }
 

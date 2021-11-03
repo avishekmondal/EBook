@@ -29,7 +29,6 @@ import retrofit2.Response;
 
 import static com.app.ebook.network.UrlConstants.URL_BOOK_AUDIO_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.BOOK_ID;
 import static com.app.ebook.util.Constants.IS_MEDIA_PLAYING;
 
 public class AudioActivity extends BaseActivity implements RetrofitListener,
@@ -220,7 +219,7 @@ public class AudioActivity extends BaseActivity implements RetrofitListener,
             mProgressDialog.showProgressDialog();
 
             BookChapterListRequest bookChapterListRequest = new BookChapterListRequest();
-            bookChapterListRequest.bookId = mSessionManager.getSession(BOOK_ID);
+            bookChapterListRequest.bookId = mBookDetails.bookId;
             retroClient.makeHttpRequest(retroClient.retrofit.create(RetroClient.RestInterface.class).getBookAudioList(bookChapterListRequest),
                     URL_BOOK_AUDIO_LIST);
         } else {
