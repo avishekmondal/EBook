@@ -33,8 +33,9 @@
                 app:tint="@color/black" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center|start"
                 android:orientation="vertical">
 
@@ -58,13 +59,25 @@
                     android:textSize="@dimen/mini_text" />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/buttonTextToSpeech"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:onClick="onClickTextToSpeech"
+                app:srcCompat="@drawable/ic_speaker_off"
+                app:tint="@color/black" />
         </LinearLayout>
 
         <RelativeLayout
             android:id="@id/layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/white_bg_top_rounded"
             android:orientation="vertical"
             android:paddingStart="@dimen/_15sdp"

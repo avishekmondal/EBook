@@ -35,6 +35,7 @@ public interface UrlConstants {
     String URL_PREVIEW_AUDIO_LIST = BASE_URL + "book/preview_get_all_audios/";
     String URL_PREVIEW_VIDEO_LIST = BASE_URL + "book/preview_get_all_videos/";
 
+    String URL_MCQ_CATEGORY_LIST = BASE_URL + "book/get_book_services/";
     String URL_PREVIEW_MCQ_CHAPTER_LIST = BASE_URL + "book/preview_get_mcqchapterlist_by_book/";
     String URL_PREVIEW_MCQ_LIST = BASE_URL + "book/preview_get_mqcquestions_by_chapter/";
 

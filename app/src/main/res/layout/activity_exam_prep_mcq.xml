@@ -35,13 +35,26 @@
 
             <TextView
                 android:id="@+id/textViewTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
                 android:text="Chapter"
                 android:textColor="@color/black_333333"
                 android:textSize="@dimen/large_text"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/buttonTextToSpeech"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:onClick="onClickSpeaker"
+                app:srcCompat="@drawable/ic_speaker_off"
+                app:tint="@color/black" />
 
         </LinearLayout>
 

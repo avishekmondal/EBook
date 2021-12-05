@@ -123,7 +123,6 @@ public class CartActivity extends BaseActivity implements RetrofitListener, Cart
 
     private void deleteFromCart(String productID) {
         UpdateCartRequest updateCartRequest = new UpdateCartRequest();
-        updateCartRequest.userId = mUser.username;
         updateCartRequest.productId = productID;
         makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).deleteFromCart(updateCartRequest),
                 URL_DELETE_CART);

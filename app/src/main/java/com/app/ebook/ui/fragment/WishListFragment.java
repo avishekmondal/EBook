@@ -26,7 +26,6 @@ import com.app.ebook.network.RetrofitListener;
 import com.app.ebook.network.UrlConstants;
 import com.app.ebook.ui.activity.BookDetailsActivity;
 import com.app.ebook.ui.activity.LibraryBookDetailsActivity;
-import com.app.ebook.ui.activity.SubscriptionPlanActivity;
 import com.app.ebook.ui.adapter.BookListAdapter;
 import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.Constants;
