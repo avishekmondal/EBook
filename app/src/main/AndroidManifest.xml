@@ -108,6 +108,11 @@
             android:theme="@style/AppTheme.NoActionBar" />-->
 
         <activity
+            android:name=".ui.activity.ExamPrepActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.activity.ExamPrepChapterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

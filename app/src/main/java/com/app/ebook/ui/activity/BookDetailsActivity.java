@@ -2,10 +2,8 @@ package com.app.ebook.ui.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.appcompat.widget.PopupMenu;
 import androidx.databinding.DataBindingUtil;
 
 import com.amar.library.ui.interfaces.IScrollViewListener;
@@ -29,7 +27,6 @@ import retrofit2.Response;
 
 import static com.app.ebook.network.UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.KEY;
 
 public class BookDetailsActivity extends BaseActivity implements RetrofitListener {
 
@@ -153,8 +150,7 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
 
     public void onClickExamPreparation(View view) {
         applyTabClickEffect(2);
-
-        PopupMenu popup = new PopupMenu(BookDetailsActivity.this, binding.layoutExamPreparation);
+        /*PopupMenu popup = new PopupMenu(BookDetailsActivity.this, binding.layoutExamPreparation);
         popup.getMenuInflater().inflate(R.menu.exam_preparation, popup.getMenu());
         popup.show();
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -166,7 +162,9 @@ public class BookDetailsActivity extends BaseActivity implements RetrofitListene
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             }
-        });
+        });*/
+        startTargetActivity(ExamPrepActivity.class);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void applyTabClickEffect(int position) {

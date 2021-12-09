@@ -262,6 +262,24 @@ public class AppUtilities {
         return "";
     }
 
+    public static String toCamelCase(final String text) {
+        if (text == null)
+            return null;
+
+        final StringBuilder ret = new StringBuilder(text.length());
+
+        for (final String word : text.split("_")) {
+            if (!word.isEmpty()) {
+                ret.append(Character.toUpperCase(word.charAt(0)));
+                ret.append(word.substring(1).toLowerCase());
+            }
+            if (!(ret.length() == text.length()))
+                ret.append(" ");
+        }
+
+        return ret.toString();
+    }
+
     public static String getName(Context mContext, String name, int position) {
         String firstName = "", lastName = "";
         if (name.split("\\w+").length > 1) {

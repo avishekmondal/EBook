@@ -1,20 +1,17 @@
-package com.app.ebook.ui.fragment;
+package com.app.ebook.ui.activity;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 
 import com.app.ebook.R;
-import com.app.ebook.databinding.FragmentExamPrepBinding;
+import com.app.ebook.databinding.ActivityExamPrepBinding;
 import com.app.ebook.models.exam_prep_chapters.MCQCategoryListRequest;
 import com.app.ebook.models.exam_prep_chapters.MCQCategoryListResponse;
 import com.app.ebook.network.RetroClient;
 import com.app.ebook.network.RetrofitListener;
 import com.app.ebook.network.UrlConstants;
-import com.app.ebook.ui.activity.ExamPrepChapterActivity;
 import com.app.ebook.ui.adapter.MCQCategoryListAdapter;
 import com.app.ebook.util.AppUtilities;
 
@@ -26,39 +23,45 @@ import retrofit2.Response;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.KEY;
 
-public class ExamPrepFragment extends BaseFragment implements RetrofitListener {
+public class ExamPrepActivity extends BaseActivity implements RetrofitListener {
 
-    private FragmentExamPrepBinding binding;
+    private ActivityExamPrepBinding binding;
     private RetroClient retroClient;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_exam_prep, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_exam_prep);
 
         init();
-        initClickListener();
         getMCQCategoryList();
+    }
 
-        return binding.getRoot();
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        finish();
     }
 
     private void init() {
-        retroClient = new RetroClient(getActivity(), this);
+        retroClient = new RetroClient(this, this);
+
+        binding.textViewTitle.setText(mBookDetails.bookName);
     }
 
-    private void initClickListener() {
-        binding.layoutSubjective.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mSessionManager.setSession(KEY, getString(R.string.menu_subjective));
-                startTargetActivity(ExamPrepChapterActivity.class);
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
+    public void onClickBack(View view) {
+        onBackPressed();
+    }
+
+    public void onClickSubjective(View view) {
+        mSessionManager.setSession(KEY, getString(R.string.menu_subjective));
+        startTargetActivity(ExamPrepChapterActivity.class);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void getMCQCategoryList() {
-        if (AppUtilities.getInstance(getActivity()).isOnline()) {
+        if (AppUtilities.getInstance(this).isOnline()) {
             mProgressDialog.showProgressDialog();
 
             MCQCategoryListRequest mcqCategoryListRequest = new MCQCategoryListRequest();
@@ -77,7 +80,7 @@ public class ExamPrepFragment extends BaseFragment implements RetrofitListener {
         MCQCategoryListResponse mcqCategoryListResponse = (MCQCategoryListResponse) response.body();
         if (mcqCategoryListResponse != null && mcqCategoryListResponse.retCode && mcqCategoryListResponse.returnResponse.size() > 0) {
             List<String> mcqCategoryList = mcqCategoryListResponse.returnResponse;
-            MCQCategoryListAdapter mcqCategoryListAdapter = new MCQCategoryListAdapter(getActivity(), mcqCategoryList);
+            MCQCategoryListAdapter mcqCategoryListAdapter = new MCQCategoryListAdapter(this, mcqCategoryList);
             binding.recyclerViewMCQCategoryList.setAdapter(mcqCategoryListAdapter);
         } else {
             showSnackBar(binding.rootLayout, getString(R.string.no_mcq));

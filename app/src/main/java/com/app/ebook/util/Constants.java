@@ -10,6 +10,7 @@ public interface Constants {
     String USER_TOKEN = "access_token";
     String BOOK_DETAILS = "book_details";
     String KEY = "key";
+    String MCQ_CATEGORY = "mcq_category";
     String CHAPTER = "chapter";
     String MEDIA_CHAPTER = "media_chapter";
     String MEDIA_HEADING = "media_heading";

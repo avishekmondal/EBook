@@ -43,6 +43,7 @@ import retrofit2.Response;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.CHAPTER;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+import static com.app.ebook.util.Constants.MCQ_CATEGORY;
 
 public class ExamPrepMCQActivity extends BaseActivity implements RetrofitListener {
 
@@ -440,6 +441,7 @@ public class ExamPrepMCQActivity extends BaseActivity implements RetrofitListene
 
             MCQListRequest mcqListRequest = new MCQListRequest();
             mcqListRequest.bookId = mBookDetails.bookId;
+            mcqListRequest.category = mSessionManager.getSession(MCQ_CATEGORY);
             mcqListRequest.chapter = mSessionManager.getSession(CHAPTER);
 
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {

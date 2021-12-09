@@ -53,6 +53,8 @@ import com.app.ebook.models.cart.UpdateCartRequest;
 import com.app.ebook.models.cart.UpdateCartResponse;
 import com.app.ebook.models.exam_prep_chapters.ExamPrepChapterListRequest;
 import com.app.ebook.models.exam_prep_chapters.ExamPrepChapterListResponse;
+import com.app.ebook.models.exam_prep_chapters.MCQCategoryListRequest;
+import com.app.ebook.models.exam_prep_chapters.MCQCategoryListResponse;
 import com.app.ebook.models.mcq.MCQListRequest;
 import com.app.ebook.models.mcq.MCQListResponse;
 import com.app.ebook.models.subjective.SubjectiveListRequest;
@@ -237,6 +239,9 @@ public class RetroClient {
 
         @POST(UrlConstants.URL_PREVIEW_VIDEO_LIST)
         Call<VideoListResponse> getPreviewVideoList(@Body VideoListRequest body);
+
+        @POST(UrlConstants.URL_MCQ_CATEGORY_LIST)
+        Call<MCQCategoryListResponse> getMCQCategoryList(@Body MCQCategoryListRequest body);
 
         @POST(UrlConstants.URL_PREVIEW_MCQ_CHAPTER_LIST)
         Call<ExamPrepChapterListResponse> getPreviewMcqChapterList(@Body ExamPrepChapterListRequest body);

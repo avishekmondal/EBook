@@ -23,6 +23,7 @@ import retrofit2.Response;
 import static com.app.ebook.util.AppUtilities.showSnackBar;
 import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 import static com.app.ebook.util.Constants.KEY;
+import static com.app.ebook.util.Constants.MCQ_CATEGORY;
 
 public class ExamPrepChapterActivity extends BaseActivity implements RetrofitListener {
 
@@ -74,6 +75,7 @@ public class ExamPrepChapterActivity extends BaseActivity implements RetrofitLis
         examPrepChapterListRequest.bookId = mBookDetails.bookId;
 
         if (mSessionManager.getSession(KEY).equalsIgnoreCase(getString(R.string.menu_mcq))) {
+            examPrepChapterListRequest.category = mSessionManager.getSession(MCQ_CATEGORY);
             if (!mSessionManager.getBooleanSession(IS_SUBSCRIBED)) {
                 makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).getPreviewMcqChapterList(examPrepChapterListRequest),
                         UrlConstants.URL_PREVIEW_MCQ_CHAPTER_LIST);
