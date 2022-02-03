@@ -1,5 +1,12 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_VIDEO_LIST;
+import static com.app.ebook.network.UrlConstants.URL_VIDEO_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PAUSE;
+import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PLAYING;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -25,13 +32,6 @@ import hb.xvideoplayer.MxVideoPlayer;
 import hb.xvideoplayer.MxVideoPlayerWidget;
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_PREVIEW_VIDEO_LIST;
-import static com.app.ebook.network.UrlConstants.URL_VIDEO_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
-import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PAUSE;
-import static hb.xvideoplayer.MxVideoPlayer.CURRENT_STATE_PLAYING;
 
 public class VideoListActivity extends BaseActivity implements RetrofitListener, MxVideoPlayerWidget.UIStatusChangeListener {
 

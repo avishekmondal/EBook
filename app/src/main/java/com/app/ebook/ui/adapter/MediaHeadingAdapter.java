@@ -1,5 +1,9 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.MEDIA_AUDIO;
+import static com.app.ebook.util.Constants.MEDIA_HEADING;
+import static com.app.ebook.util.Constants.MEDIA_VIDEO;
+
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,10 +23,6 @@ import com.app.ebook.ui.activity.VideoActivity;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.MEDIA_AUDIO;
-import static com.app.ebook.util.Constants.MEDIA_HEADING;
-import static com.app.ebook.util.Constants.MEDIA_VIDEO;
 
 public class MediaHeadingAdapter extends RecyclerView.Adapter<MediaHeadingAdapter.ViewHolder> {
 

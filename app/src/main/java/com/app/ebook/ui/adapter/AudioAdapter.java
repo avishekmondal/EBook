@@ -1,5 +1,8 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.IS_MEDIA_PLAYING;
+import static com.app.ebook.util.Constants.MEDIA_AUDIO;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,9 +20,6 @@ import com.app.ebook.ui.activity.AudioActivity;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.IS_MEDIA_PLAYING;
-import static com.app.ebook.util.Constants.MEDIA_AUDIO;
 
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> {
 

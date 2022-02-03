@@ -1,5 +1,10 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.CHAPTER;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+import static com.app.ebook.util.Constants.MCQ_CATEGORY;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
@@ -39,11 +44,6 @@ import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.CHAPTER;
-import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
-import static com.app.ebook.util.Constants.MCQ_CATEGORY;
 
 public class ExamPrepMCQActivity extends BaseActivity implements RetrofitListener {
 

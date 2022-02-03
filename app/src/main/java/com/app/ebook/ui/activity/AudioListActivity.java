@@ -1,5 +1,10 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_AUDIO_LIST;
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_AUDIO_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,11 +27,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_AUDIO_LIST;
-import static com.app.ebook.network.UrlConstants.URL_PREVIEW_AUDIO_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
 public class AudioListActivity extends BaseActivity implements RetrofitListener,
         MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener {
@@ -177,12 +177,14 @@ public class AudioListActivity extends BaseActivity implements RetrofitListener,
     @Override
     public void onCompletion(MediaPlayer arg0) {
         binding.buttonPlay.setImageResource(R.drawable.img_play);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                audioListAdapter.startNextAudio();
-            }
-        }, 1000);
+        if (audioListAdapter != null && audioListAdapter.getItemCount() > 0) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    audioListAdapter.startNextAudio();
+                }
+            }, 1000);
+        }
     }
 
     @Override

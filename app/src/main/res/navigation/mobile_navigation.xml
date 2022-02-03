@@ -29,18 +29,22 @@
         android:id="@+id/navigation_authors_zone"
         android:name="com.app.ebook.ui.fragment.AuthorsZoneFragment"
         tools:layout="@layout/fragment_authors_zone" />
+
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.app.ebook.ui.fragment.SettingsFragment"
         tools:layout="@layout/fragment_settings" />
-    <fragment
+
+    <activity
         android:id="@+id/navigation_help_and_support"
-        android:name="com.app.ebook.ui.fragment.HelpAndSupportFragment"
-        tools:layout="@layout/fragment_help_and_support" />
+        android:name="com.app.ebook.ui.activity.HelpAndSupportActivity"
+        tools:layout="@layout/activity_help_and_support" />
+
     <fragment
         android:id="@+id/navigation_rating_and_reviews"
         android:name="com.app.ebook.ui.fragment.RatingAndReviewsFragment"
         tools:layout="@layout/fragment_rating_and_reviews" />
+
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.app.ebook.ui.fragment.ProfileFragment"

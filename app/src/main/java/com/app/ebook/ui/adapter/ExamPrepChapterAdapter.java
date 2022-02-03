@@ -1,5 +1,8 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.CHAPTER;
+import static com.app.ebook.util.Constants.KEY;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +20,6 @@ import com.app.ebook.ui.activity.ExamPrepQuestionActivity;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.CHAPTER;
-import static com.app.ebook.util.Constants.KEY;
 
 public class ExamPrepChapterAdapter extends RecyclerView.Adapter<ExamPrepChapterAdapter.ViewHolder> {
 

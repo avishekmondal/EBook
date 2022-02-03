@@ -1,7 +1,10 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.AppUtilities.showToast;
+
 import android.os.Bundle;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
@@ -23,12 +26,8 @@ import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.Constants;
 import com.google.gson.Gson;
 
-import in.aabhasjindal.otptextview.OTPListener;
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.AppUtilities.showToast;
 
 public class VerifyOTPActivity extends BaseActivity implements RetrofitListener {
 
@@ -76,19 +75,13 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
 
         binding.textViewVerificationText.setText("Enter OTP sent to your email and mobile");
 
-        binding.otpView.setOtpListener(new OTPListener() {
+        binding.otpView.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onInteractionListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
                 binding.textViewVerificationError.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onOTPComplete(String otp) {
-
+                return false;
             }
         });
-
-        Log.v("aa", verifyOTPRequest.email + " " + verifyOTPRequest.otp);
     }
 
     public void onClickBack(View view) {
@@ -96,7 +89,7 @@ public class VerifyOTPActivity extends BaseActivity implements RetrofitListener 
     }
 
     public void onClickVerifyOTP(View view) {
-        String otp = binding.otpView.getOTP();
+        String otp = binding.otpView.getText().toString();
         if (otp.equals(verifyOTPRequest.otp)) {
             if (isRegistration) {
                 makeNetworkCall(retroClient.retrofit.create(RetroClient.RestInterface.class).registration(registrationRequest),

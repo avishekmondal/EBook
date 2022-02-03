@@ -1,5 +1,10 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+import static com.app.ebook.util.Constants.KEY;
+import static com.app.ebook.util.Constants.MCQ_CATEGORY;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,11 +24,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
-import static com.app.ebook.util.Constants.KEY;
-import static com.app.ebook.util.Constants.MCQ_CATEGORY;
 
 public class ExamPrepChapterActivity extends BaseActivity implements RetrofitListener {
 

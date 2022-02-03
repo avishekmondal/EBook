@@ -1,5 +1,8 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.IS_LOGGEDIN;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,9 +24,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.IS_LOGGEDIN;
 
 public class SplashActivity extends BaseActivity implements RetrofitListener {
 
@@ -94,4 +94,6 @@ public class SplashActivity extends BaseActivity implements RetrofitListener {
     }
 }
 
-/*https://www.getpostman.com/collections/944ccbce459794d2c802*/
+//https://xd.adobe.com/view/8ef22be6-6163-47c2-b668-9ed6bf6f829d-dba1/
+//https://xd.adobe.com/view/8e959ad0-377c-49ab-9238-98d6fad5742c-dbc6/
+//https://www.getpostman.com/collections/8380858ee65148a9f4e4

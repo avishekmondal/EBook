@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data></data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layoutAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admin"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mini_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewAdminTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="09:30 AM"
+                    android:textColor="#9D9D9D"
+                    android:textSize="@dimen/micro_text"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewAdminMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_chat_admin"
+                android:padding="@dimen/_15sdp"
+                android:text="Integer faucibus laoreet dui a faucibus."
+                android:textColor="#283C67"
+                android:textSize="@dimen/small_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:gravity="center|right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/textViewUserTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09:30 AM"
+                    android:textColor="#9D9D9D"
+                    android:textSize="@dimen/micro_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="You"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mini_text"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewUserMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_chat_user"
+                android:padding="@dimen/_15sdp"
+                android:text="Lorem ipsum dolor sit amet"
+                android:textColor="#283C67"
+                android:textSize="@dimen/small_text" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

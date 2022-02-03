@@ -1,5 +1,8 @@
 package com.app.ebook.ui.fragment;
 
+import static com.app.ebook.network.UrlConstants.URL_BOOK_CHAPTER_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +25,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_BOOK_CHAPTER_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class CoachingFragment extends BaseFragment implements RetrofitListener {
 

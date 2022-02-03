@@ -99,6 +99,9 @@ public class MainActivity extends BaseActivity implements RetrofitListener {
                         case R.id.navigation_subscription:
                             title = "Subscription List";
                             break;
+                        case R.id.navigation_help_and_support:
+                            title = "Help & Support";
+                            break;
                         default:
                             title = getString(R.string.app_name);
                             break;

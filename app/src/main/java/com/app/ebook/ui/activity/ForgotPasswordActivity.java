@@ -1,5 +1,7 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -17,8 +19,6 @@ import com.app.ebook.util.AppUtilities;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class ForgotPasswordActivity extends BaseActivity implements RetrofitListener {
 

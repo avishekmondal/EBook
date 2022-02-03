@@ -1,5 +1,7 @@
 package com.app.ebook.ui.fragment;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -28,8 +30,6 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class HomeFragment extends BaseFragment implements RetrofitListener {
 

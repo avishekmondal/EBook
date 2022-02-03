@@ -1,5 +1,7 @@
 package com.app.ebook.ui.fragment;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,8 +37,6 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class WishListFragment extends BaseFragment implements RetrofitListener, BookListAdapter.BookListItemClickListener {
 

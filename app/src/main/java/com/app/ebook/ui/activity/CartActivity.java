@@ -1,5 +1,9 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_CART_LIST;
+import static com.app.ebook.network.UrlConstants.URL_DELETE_CART;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -27,10 +31,6 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_CART_LIST;
-import static com.app.ebook.network.UrlConstants.URL_DELETE_CART;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class CartActivity extends BaseActivity implements RetrofitListener, CartAdapter.CartItemClickListener {
 

@@ -70,17 +70,16 @@
                     android:text="Enter OTP sent to +91 8759569353"
                     android:textSize="@dimen/small_text" />
 
-                <in.aabhasjindal.otptextview.OtpTextView
-                    android:id="@+id/otpView"
+                <com.mukesh.OtpView
+                    android:id="@+id/otp_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:textColor="#333333"
-                    app:bar_enabled="true"
-                    app:bar_height="@dimen/_2sdp"
-                    app:length="4"
-                    app:otp_text_size="@dimen/large_text" />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/large_text"
+                    app:lineColor="@color/colorPrimary"
+                    app:viewType="line" />
 
                 <TextView
                     android:id="@+id/textViewVerificationError"

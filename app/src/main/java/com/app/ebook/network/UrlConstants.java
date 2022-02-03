@@ -2,7 +2,7 @@ package com.app.ebook.network;
 
 public interface UrlConstants {
 
-    String BASE_URL = "http://13.235.241.44:5000/";
+    String BASE_URL = "http://3.110.179.175:5000/";
 
     // Board & Class List
     String URL_BOARD_LIST = BASE_URL + "user/get_boards/";
@@ -70,6 +70,14 @@ public interface UrlConstants {
     String URL_ADD_CART = BASE_URL + "book/addtocart/";
     String URL_DELETE_CART = BASE_URL + "book/deletecart/";
     String URL_CART_LIST = BASE_URL + "book/getmycart/";
+
+    // Support Chat
+    String URL_CHAT = BASE_URL + "user/get_supportChat_by_ueserID/";
+    String URL_POST_CHAT = BASE_URL + "user/post_chat/";
+
+
+    // FAQs
+    String URL_FAQ_LIST = BASE_URL + "user/get_FAQs/";
 
     String URL_CHANGE_PASSWORD = BASE_URL + "changePassword";
     String URL_LOGOUT = BASE_URL + "logout";

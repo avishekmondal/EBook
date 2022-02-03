@@ -1,5 +1,7 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.Constants.CHAPTER;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -18,8 +20,6 @@ import com.app.ebook.util.AppUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.app.ebook.util.Constants.CHAPTER;
 
 public class ExamPrepSubjectiveActivity extends BaseActivity {
 

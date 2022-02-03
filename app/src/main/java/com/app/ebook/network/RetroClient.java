@@ -14,6 +14,7 @@ import com.app.ebook.models.CheckDuplicateUserResponse;
 import com.app.ebook.models.CityListRequest;
 import com.app.ebook.models.CityListResponse;
 import com.app.ebook.models.ClassListResponse;
+import com.app.ebook.models.FAQResponse;
 import com.app.ebook.models.ForgotPasswordRequest;
 import com.app.ebook.models.ForgotPasswordResponse;
 import com.app.ebook.models.InstituteListResponse;
@@ -51,6 +52,9 @@ import com.app.ebook.models.cart.CartListRequest;
 import com.app.ebook.models.cart.CartListResponse;
 import com.app.ebook.models.cart.UpdateCartRequest;
 import com.app.ebook.models.cart.UpdateCartResponse;
+import com.app.ebook.models.chat.ChatPostRequest;
+import com.app.ebook.models.chat.ChatPostResponse;
+import com.app.ebook.models.chat.ChatResponse;
 import com.app.ebook.models.exam_prep_chapters.ExamPrepChapterListRequest;
 import com.app.ebook.models.exam_prep_chapters.ExamPrepChapterListResponse;
 import com.app.ebook.models.exam_prep_chapters.MCQCategoryListRequest;
@@ -314,6 +318,15 @@ public class RetroClient {
 
         @POST(UrlConstants.URL_SUBSCRIPTION_LIST)
         Call<SubscriptionListResponse> getSubscriptionList(@Body SubscriptionListRequest body);
+
+        @GET(UrlConstants.URL_CHAT)
+        Call<ChatResponse> getChatList();
+
+        @POST(UrlConstants.URL_POST_CHAT)
+        Call<ChatPostResponse> postChat(@Body ChatPostRequest body);
+
+        @GET(UrlConstants.URL_FAQ_LIST)
+        Call<FAQResponse> getFAQList();
 
         @GET(UrlConstants.URL_LOGOUT)
         Call<LogoutResponse> logout();

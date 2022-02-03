@@ -1,5 +1,7 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -32,8 +34,6 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class BookListActivity extends BaseActivity implements RetrofitListener, BookListAdapter.BookListItemClickListener {
 

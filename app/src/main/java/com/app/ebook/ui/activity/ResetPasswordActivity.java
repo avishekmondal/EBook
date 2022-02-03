@@ -1,5 +1,8 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.AppUtilities.showToast;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,9 +20,6 @@ import com.app.ebook.util.AppUtilities;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.AppUtilities.showToast;
 
 public class ResetPasswordActivity extends BaseActivity implements RetrofitListener {
 

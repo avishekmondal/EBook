@@ -1,5 +1,9 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_BOOK_AUDIO_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.IS_MEDIA_PLAYING;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,10 +30,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_BOOK_AUDIO_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.IS_MEDIA_PLAYING;
 
 public class AudioActivity extends BaseActivity implements RetrofitListener,
         MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener {

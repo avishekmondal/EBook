@@ -1,5 +1,8 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.MEDIA_CHAPTER;
+import static com.app.ebook.util.Constants.MEDIA_HEADING;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,9 +24,6 @@ import com.app.ebook.ui.activity.VideoListActivity;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.MEDIA_CHAPTER;
-import static com.app.ebook.util.Constants.MEDIA_HEADING;
 
 public class HeadingAdapter extends RecyclerView.Adapter<HeadingAdapter.ViewHolder> {
 

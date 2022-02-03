@@ -1,5 +1,7 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.MEDIA_HEADING;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,8 +20,6 @@ import com.app.ebook.util.AppUtilities;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.MEDIA_HEADING;
 
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.ViewHolder> {
 

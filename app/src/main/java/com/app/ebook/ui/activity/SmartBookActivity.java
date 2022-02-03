@@ -1,5 +1,7 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
+
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
@@ -20,8 +22,6 @@ import com.app.ebook.util.AppUtilities;
 
 import java.util.List;
 import java.util.Locale;
-
-import static com.app.ebook.util.Constants.IS_SUBSCRIBED;
 
 public class SmartBookActivity extends BaseActivity {
 

@@ -1,5 +1,9 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_ADD_CART;
+import static com.app.ebook.network.UrlConstants.URL_SUBSCRIPTION_PLAN_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,10 +29,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_ADD_CART;
-import static com.app.ebook.network.UrlConstants.URL_SUBSCRIPTION_PLAN_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class SubscriptionPlanActivity extends BaseActivity implements RetrofitListener, SubscriptionPlanAdapter.SubscriptionPlanListItemClickListener {
 

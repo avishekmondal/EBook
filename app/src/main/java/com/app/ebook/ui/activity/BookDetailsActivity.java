@@ -1,5 +1,8 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.network.UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST;
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -24,9 +27,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.network.UrlConstants.URL_PREVIEW_BOOK_CHAPTER_LIST;
-import static com.app.ebook.util.AppUtilities.showSnackBar;
 
 public class BookDetailsActivity extends BaseActivity implements RetrofitListener {
 

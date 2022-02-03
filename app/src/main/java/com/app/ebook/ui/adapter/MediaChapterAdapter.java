@@ -1,5 +1,7 @@
 package com.app.ebook.ui.adapter;
 
+import static com.app.ebook.util.Constants.MEDIA_CHAPTER;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,8 +20,6 @@ import com.app.ebook.ui.activity.VideoActivity;
 import com.app.ebook.util.SessionManager;
 
 import java.util.List;
-
-import static com.app.ebook.util.Constants.MEDIA_CHAPTER;
 
 public class MediaChapterAdapter extends RecyclerView.Adapter<MediaChapterAdapter.ViewHolder> {
 

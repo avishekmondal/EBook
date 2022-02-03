@@ -521,6 +521,7 @@ public abstract class MxVideoPlayer extends FrameLayout implements MxMediaPlayer
 
     }
 
+    @SuppressLint("RestrictedApi")
     private static void hideSupportActionBar(Context context) {
         ActionBar actionBar = MxUtils.getAppComptActivity(context).getSupportActionBar();
         if (actionBar != null) {
@@ -532,6 +533,7 @@ public abstract class MxVideoPlayer extends FrameLayout implements MxMediaPlayer
         MxUtils.hideSystemUI(context);
     }
 
+    @SuppressLint("RestrictedApi")
     private static void showSupportActionBar(Context context) {
         ActionBar actionBar = MxUtils.getAppComptActivity(context).getSupportActionBar();
         if (actionBar != null) {

@@ -1,5 +1,8 @@
 package com.app.ebook.ui.activity;
 
+import static com.app.ebook.util.AppUtilities.showSnackBar;
+import static com.app.ebook.util.Constants.KEY;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,9 +22,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static com.app.ebook.util.AppUtilities.showSnackBar;
-import static com.app.ebook.util.Constants.KEY;
 
 public class ExamPrepActivity extends BaseActivity implements RetrofitListener {
 
